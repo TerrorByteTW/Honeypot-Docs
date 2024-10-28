@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE instance-profile
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
+
+<instance-profile id="h"
+                 name="Honeypot"
+                 start-page="Overview.md">
+
+    <toc-element topic="starter.md"/>
+    <toc-element topic="Overview.md"/>
+    <toc-element topic="Configuration.md">
+        <toc-element topic="Plugin-Config.md"/>
+        <toc-element topic="Custom-Honeypot-Config.md"/>
+        <toc-element topic="GUI-Config.md"/>
+        <toc-element topic="Language-Files.md"/>
+    </toc-element>
+    <toc-element topic="Commands.md"/>
+    <toc-element topic="Third-Party-Integrations.md">
+        <toc-element topic="PlaceholderAPI.md"/>
+        <toc-element topic="WorldGuard.md"/>
+        <toc-element topic="GriefPrevention.md"/>
+        <toc-element topic="Vault.md"/>
+        <toc-element topic="Lands.md"/>
+    </toc-element>
+    <toc-element topic="Adding-Functionality.md">
+        <toc-element topic="Events.md"/>
+        <toc-element topic="Storage-Providers.md"/>
+        <toc-element topic="Behavior-Providers.md"/>
+    </toc-element>
+</instance-profile>
