@@ -28,7 +28,7 @@
                 <li>Locate the <code>lang</code> folder within <code>src/main/resources/lang</code></li>
                 <li>Create a new file with the language code. For example, if you were creating one for Chinese (PRC),
                     it would be <code>zh_CN.yml</code>. For Chinese (Hong Kong) it would be <code>zh_HK.yml</code>. <a
-                            href="https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oe376/6c085406-a698-4e12-9d4d-c3b0ee3dbc4a">[Microsoft
+                            href="https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oe376/6c085406-a698-4e12-9d4d-c3b0ee3dbc4a">Microsoft
                         keeps a list of
                         these language codes as a good reference as part of their Open
                         Specifications</a>.
@@ -49,7 +49,7 @@
                 <li>Locate the <code>lang</code> folder within <code>src/main/resources/lang</code></li>
                 <li>Create a new file with the language code. For example, if you were creating one for Chinese (PRC),
                     it would be <code>zh_CN.yml</code>. For Chinese (Hong Kong) it would be <code>zh_HK.yml</code>. <a
-                            href="https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oe376/6c085406-a698-4e12-9d4d-c3b0ee3dbc4a">[Microsoft
+                            href="https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oe376/6c085406-a698-4e12-9d4d-c3b0ee3dbc4a">Microsoft
                         keeps a list of
                         these language codes as a good reference as part of their Open
                         Specifications</a>.
