@@ -7,6 +7,7 @@
     <title>
         Plugin Config
     </title>
+    <show-structure depth="2" />
     <p>The <code>config.yml</code> file is responsible for all the core configuration in the plugin.
         <resource src="config.yml">You can download a sample config.yml file here.</resource>
     </p>
