@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       id="Language-Files" title="Language Files">
+
+    <title>
+        Language Files
+    </title>
+    <show-structure depth="2"/>
+
+    <p>Language files are a way to translate Honeypot's chat output to your native language. They also allow for custom
+        formatting of messages, and even changing the prefix of Honeypot to remove its branding if you so chose!</p>
+
+    <p>Rather than list out every single individual translation, you can download a
+        <resource src="en_US.yml">sample translation in the en_US language here</resource>
+    </p>
+
+    <chapter title="Translating Honeypot">
+        <p>If you're here to learn how to translate Honeypot, thank you! There are two ways you can do this, one is
+            easier than the other but the other makes it easier on <i>me</i> lol</p>
+
+        <chapter title="Contribute via Pull Request" id="contribute-pr">
+            <p>The quickest way to provide translation is via a pull request.</p>
+
+            <list type="decimal">
+                <li>Create a fork of the repository.</li>
+                <li>Locate the <code>lang</code> folder within <code>src/main/resources/lang</code></li>
+                <li>Create a new file with the language code. For example, if you were creating one for Chinese (PRC),
+                    it would be <code>zh_CN.yml</code>. For Chinese (Hong Kong) it would be <code>zh_HK.yml</code>. <a
+                            href="https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oe376/6c085406-a698-4e12-9d4d-c3b0ee3dbc4a">[Microsoft
+                        keeps a list of
+                        these language codes as a good reference as part of their Open
+                        Specifications</a>.
+                    Copy and paste one of the existing language files, then translate everything past the 2nd line
+                    (Don't touch the language-version line 😁).
+                </li>
+                <li>Commit your changes to your fork</li>
+                <li>Create a pull request with the new language file. Once I review the changes, I will merge them into
+                    the
+                    project :)
+                </li>
+            </list>
+        </chapter>
+
+        <chapter title="Contribute via providing me a language file" id="contribute-provide">
+            <p>This is easier, but definitely slower.</p>
+            <list type="decimal">
+                <li>Locate the <code>lang</code> folder within <code>src/main/resources/lang</code></li>
+                <li>Create a new file with the language code. For example, if you were creating one for Chinese (PRC),
+                    it would be <code>zh_CN.yml</code>. For Chinese (Hong Kong) it would be <code>zh_HK.yml</code>. <a
+                            href="https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oe376/6c085406-a698-4e12-9d4d-c3b0ee3dbc4a">[Microsoft
+                        keeps a list of
+                        these language codes as a good reference as part of their Open
+                        Specifications</a>.
+                    Copy and paste one of the existing language files, then translate everything past the 2nd line
+                    (Don't touch the language-version line 😁).
+                </li>
+                <li>Send the file to me my Discord in either a ticket or the #honeypot channel. Once received I will
+                    review the
+                    file, add it to the repo, and create a new commit.
+                </li>
+            </list>
+        </chapter>
+    </chapter>
+    <chapter title="Creating personal translations" id="create-personal-translation">
+        <p>If you'd like to create your own translations locally without waiting for my plugin to support them, you can
+            do that too! (Please share them though 🥺)</p>
+
+        <list type="decimal">
+            <li>
+                Load the plugin for the first time, just to generate the default <code>en_US.yml</code> language file.
+                You can edit
+                that file if you want, or you can create a new one. If you chose to just edit that file, edit it,
+                restart the server, and enjoy your translations. If you want to create a new one, keep reading
+            </li>
+            <li>
+                Copy the <code>en_US.yml</code> file and rename it whatever you want. The name doesn't matter, I just
+                use the
+                <code>xx_YY</code> format for consistency.
+            </li>
+            <li>
+                Copy the <code>en_US.yml</code> file and rename it whatever you want. The name doesn't matter, I just
+                use the <code>xx_YY</code> format for consistency.
+            </li>
+            <li>
+                Translate everything past line 2 and save it.
+            </li>
+            <li>
+                Open the Honeypot <code>config.yml</code> file in the Honeypot folder. You will see a section called
+                <code>CHAT SETTINGS</code>. It looks like this:
+                <!--suppress WrsCodeBlockWidthInspection -->
+                <code-block lang="yaml">
+                    ######################################################################
+                    # C H A T S E T T I N G S #
+                    ######################################################################
+
+                    # Select your language. Current supported languages are: [en_US, es_MX, fr_FR, ja_JP, zh_CN]
+                    # Want to create your own translation? Visit here: https://github.com/TerrorByteTW/Honeypot/wiki/Translating-Honeypot
+                    language: en_US
+
+                    # If you're providing your own language file, set this to true. If you've incorrectly translated it, though, expect errors in console!
+                    # If you don't know what this is, leave it set to false
+                    bypass-language-check: false
+                </code-block>
+            </li>
+            <li>
+                Change <code>language</code> to whatever you named your file (MINUS the .yml part) and change <code>bypass-language-check</code>
+                to <code>true</code>. If you leave it false, the plugin will, by default, load en_US if your language
+                isn't already
+                supported by the plugin (Likely not)
+            </li>
+            <li>
+                Voilà! You've successfully created your own language. Beware though, if you fail to translate it
+                correctly or miss something (Or if the plugin updates later down the line and adds new translations)
+                then expect errors in the console 😉
+            </li>
+        </list>
+    </chapter>
+
+</topic>

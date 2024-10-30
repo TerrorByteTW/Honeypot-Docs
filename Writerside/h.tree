@@ -6,13 +6,12 @@
                  name="Honeypot"
                  start-page="Overview.md">
 
-    <toc-element topic="starter.md"/>
     <toc-element topic="Overview.md"/>
     <toc-element topic="Configuration.md">
-        <toc-element topic="Plugin-Config.md"/>
+        <toc-element topic="Plugin-Config.topic"/>
         <toc-element topic="Custom-Honeypot-Config.md"/>
-        <toc-element topic="GUI-Config.md"/>
-        <toc-element topic="Language-Files.md"/>
+        <toc-element topic="GUI-Config.topic"/>
+        <toc-element topic="Language-Files.topic"/>
     </toc-element>
     <toc-element topic="Commands.md"/>
     <toc-element topic="Third-Party-Integrations.md">

@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE terms SYSTEM "https://resources.jetbrains.com/writerside/1.0/glossary.dtd">
 <terms>
-    <term name="foo">
-        Description of what "foo" is.
+    <term name="honeypot">
+        In computer science, a Honeypot is some form of system or software that appears to be a legitimate target for
+        unauthorized access and theft of data, but instead is isolated, heavily monitored, and is sometimes even capable
+        of blocking or analyzing threats as they come. Examples of these types of software are
+        owa-honeypot or cowrie.
+    </term>
+    <term name="action">
+        An instruction or set of instructions that will be processed when a Honeypot is broken. These can include ban,
+        kick, notification to staff, warning to the player, server-wide broadcasts, custom commands, or even custom
+        Behaviors
+        added by developers in other plugins that integrate with Honeypot.
+    </term>
+    <term name="behavior">
+        A custom action that has been registered in Honeypot via a 3rd party plugin.
+    </term>
+    <term name="behavior-provider">
+        A plugin that provides a behavior or behaviors
+    </term>
+    <term name="store">
+        A custom block storage mechanism registered in Honeypot via a 3rd party plugin
+    </term>
+    <term name="storage-manager">
+        A plugin that can manage Honeypot's block storage via a provided Store.
+    </term>
+    <term name="listener">
+        A piece of code that detects and responds to events triggered by a program or software, such as Paper.
     </term>
 </terms>

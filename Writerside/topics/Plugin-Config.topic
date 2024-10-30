@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       id="Plugin-Config" title="Plugin Config">
+
+    <title>
+        Plugin Config
+    </title>
+    <p>The <code>config.yml</code> file is responsible for all the core configuration in the plugin.
+        <resource src="config.yml">You can download a sample config.yml file here.</resource>
+    </p>
+
+    <chapter title="Database Settings" id="database-settings">
+        <p>Database settings relate to the config. In early versions of Honeypot it actually did correlate to DB
+            settings, but now it's just there. It could be renamed, but for now know it doesn't actually mean
+            database</p>
+
+        <chapter title="file-version" id="file-version">
+            <p>A number used internally to identify the version of the config file.
+                This number is used to handle file updates and other things. Do not modify it, otherwise you risk your
+                config being damaged</p>
+            <code-block lang="yaml">file-version: 24</code-block>
+        </chapter>
+        <chapter title="cache-size" id="cache-size">
+            <p>The number of Honeypot objects that Honeypot will store in memory. This can increase the speed of
+                Honeypot at the expense of a minimal increase in memory usage (Think bytes, not megabytes). Set to
+                &lt;= 0 to disable</p>
+            <code-block lang="yaml">cache-size: 20</code-block>
+        </chapter>
+    </chapter>
+
+    <chapter title="Plugin Settings" id="plugin-settings">
+        <p>Plugin settings relate to the core plugin functionality. This is where you'll determine how Honeypot
+            functions</p>
+
+        <chapter title="enable-extra-events" id="enable-extra-events">
+            <p>Enables some extra events that Honeypot can listen to. These events can be quite noisy, so Honeypot
+                may end up taking more of the tick time on the server. Leaving these off is not harmful, and is why
+                it defaults to <code>false</code></p>
+            <code-block lang="yaml">enable-extra-events: false</code-block>
+        </chapter>
+
+        <chapter title="blocks-broken-before-action-taken" id="blocks-broken-before-action-taken">
+            <p>The number of Honeypot blocks a player is allowed to break before action is taken. Set to 1 for
+                immediate action</p>
+            <code-block lang="yaml">blocks-broken-before-action-taken: 1</code-block>
+        </chapter>
+
+        <chapter title="allow-player-destruction" id="allow-player-destruction">
+            <p>Allows players to actually break a Honeypot block. When false, Honeypot blocks are impossible to
+                break</p>
+            <code-block lang="yaml">allow-player-destruction: false</code-block>
+        </chapter>
+
+        <chapter title="allow-explode" id="allow-explode">
+            <p>Allows Honeypot blocks to be blown up</p>
+            <code-block lang="yaml">allow-explode: false</code-block>
+        </chapter>
+
+        <chapter title="allow-enderman" id="allow-enderman">
+            <p>Allows enderman to pick up Honeypot blocks</p>
+            <code-block lang="yaml">allow-enderman: false</code-block>
+        </chapter>
+
+        <chapter title="container-actions.enable-container-actions" id="container-actions.enable-container-actions">
+            <p>Enables actions when a player attempts to open a container (Excluding entity containers like Donkeys
+                and Villagers). When disabled, Honeypots can only be triggered by breaking, not interacting</p>
+            <code-block lang="yaml">
+                container-actions:
+                    enable-container-actions: true
+            </code-block>
+        </chapter>
+
+        <chapter title="container-actions.use-inventory-click" id="container-actions.use-inventory-click">
+            <p>This setting changes how Honeypot handles containers. Instead of triggering the moment a container
+                is right-clicked, it triggers when a slot within the container is clicked</p>
+            <code-block lang="yaml">
+                container-actions:
+                    use-inventory-click: false</code-block>
+        </chapter>
+
+        <chapter title="container-actions.only-trigger-on-withdrawal" id="container-actions.only-trigger-on-withdrawal">
+            <p>Only trigger an action when items are attempted to be withdrawn from a container, not deposited.
+                This only applied if <code>container-actions.use-inventory-click</code> is <code>true</code>.</p>
+            <code-block lang="yaml">
+                container-actions:
+                    only-trigger-on-withdrawal: true</code-block>
+        </chapter>
+
+        <chapter title="always-allow-container-access" id="always-allow-container-access">
+            <p>Allows players to still open containers, even if use-inventory-click is <code>false</code> (Meaning
+                the right-click event would be immediately intercepted and cancelled under normal circumstances). If
+                this is true, however, players will still be able to have full control over an inventory once
+                opened.</p>
+            <code-block lang="yaml">always-allow-container-access: false</code-block>
+        </chapter>
+
+        <chapter title="search-range" id="search-range">
+            <p>The default range <code>/honeypot locate</code> and <code>/honeypot remove near</code> will use when
+                searching.</p>
+            <code-block lang="yaml">search-range: 5</code-block>
+        </chapter>
+
+        <chapter title="ghost-honeypot-checker.enable" id="ghost-honeypot-checker.enable">
+            <p>Enables the "Ghost Honeypot Checker". In the event a Honeypot is removed somehow (Such as a Honeypot
+                block made of Leaves that decays), this will ensure that the space the block was occupying is
+                removed from the database.</p>
+            <code-block lang="yaml">
+                ghost-honeypot-checker:
+                    enable: true</code-block>
+        </chapter>
+
+        <chapter title="ghost-honeypot-checker.check-interval" id="ghost-honeypot-checker.check-interval">
+            <p>The amount of time in minutes that the checker will run. 20 minutes = 1 Minecraft day</p>
+            <code-block lang="yaml">
+                ghost-honeypot-checker:
+                    check-interval: 20</code-block>
+        </chapter>
+
+        <chapter title="enable-logging" id="enable-logging">
+            <p>Enables all INFO, WARN, and SEVERE logs from Honeypot to be logged to disk, as well as more detailed
+                DEBUG logs that aren't put in console</p>
+            <code-block lang="yaml">enable-logging: false</code-block>
+        </chapter>
+
+        <chapter title="discord.enable" id="discord.enable">
+            <p>Enables or disables Discord webhooks, which are sent either when a player breaks a Honeypot, action taken
+                or not, or <i>just</i> when an action is taken. Webhooks are sent in a separate computational thread, so
+                they can be delayed by up to a few seconds</p>
+            <code-block lang="yaml">
+                discord:
+                    enable: false</code-block>
+        </chapter>
+
+        <chapter title="discord.url" id="discord.url">
+            <p>The URL of your Discord webhook</p>
+            <code-block lang="yaml">
+                discord:
+                    url: "https://www.example.com" </code-block>
+        </chapter>
+
+        <chapter title="discord.send-when" id="discord.send-when">
+            <p>Determines when to send the Discord webhook message. There are two options:</p>
+            <table>
+                <tr>
+                    <td>Type</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td><code>action</code></td>
+                    <td>Sent only when an action is taken. If you have <code>blocks-broken-before-action-taken</code>
+                        to a higher value than 1, then a message will only be sent when a player meets that number
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>onbreak</code></td>
+                    <td>Sends a webhook immediately upon a break event, regardless of if the break was allowed, and
+                        regardless of if an action was triggered
+                    </td>
+                </tr>
+            </table>
+            <code-block lang="yaml">
+                discord:
+                    send-when: action</code-block>
+        </chapter>
+    </chapter>
+
+    <chapter title="Chat Settings" id="chat-settings">
+        <p>Settings that relate to how Honeypot sends messages in chat</p>
+
+        <chapter title="language" id="language">
+            <p>The language Honeypot will use to send most messages</p>
+            <code-block lang="yaml">language: en_US</code-block>
+        </chapter>
+
+        <chapter title="bypass-language-check" id="bypass-language-check">
+            <p>If you are providing your own language file, set this to true. This ensures that an invalid language
+                value doesn't crash Honeypot</p>
+            <code-block lang="yaml">bypass-language-check: false</code-block>
+        </chapter>
+
+        <chapter title="history-length" id="history-length">
+            <p>When using <code>/honeypot history query</code>, this is how many values will be returned</p>
+            <code-block lang="yaml">history-length: 5</code-block>
+        </chapter>
+    </chapter>
+
+    <chapter title="Filter Settings" id="filter-settings">
+        <p>Filter settings relate to what blocks Honeypot will allow to be processed. You can lock Honeypot down so that
+            only certain blocks can be made Honeypots</p>
+
+        <chapter title="filters.blocks" id="filters.blocks">
+            <p>Enables filtering blocks</p>
+            <code-block lang="yaml">
+                filters:
+                    blocks: false</code-block>
+        </chapter>
+
+        <chapter title="filters.inventories" id="filters.inventories">
+            <p>Enables filtering inventories</p>
+            <code-block lang="yaml">
+                filters:
+                    inventories: false</code-block>
+        </chapter>
+
+        <chapter title="allowed-inventories" id="allowed-inventories">
+            <p>A list of inventories in <a
+                    href="https://jd.papermc.io/paper/1.21.1/org/bukkit/Material.html">MATERIAL</a> format that Honeypot
+                will allow actions to be triggered on when interacted with or modified. The inventory filter does not
+                apply to block breaks, so you can still create Honeypots on disallowed inventories and only the
+                inventory click will be filtered, the breaking of the block will still be allowed unless otherwise
+                stated in the <code>allowed-blocks</code> list</p>
+            <code-block lang="yaml">
+                allowed-inventories:
+                    - CHEST
+                    - FURNACE
+            </code-block>
+        </chapter>
+
+        <chapter title="allowed-blocks" id="allowed-blocks">
+            <p>A list of blocks in <a
+                    href="https://jd.papermc.io/paper/1.21.1/org/bukkit/Material.html">MATERIAL</a> format that
+                Honeypot's can be created on. If block filtering is enabled, and you try to create a Honeypot using a
+                block not in the list, it will be disallowed</p>
+            <code-block lang="yaml">
+                allowed-blocks:
+                    - DIAMOND_ORE
+            </code-block>
+        </chapter>
+    </chapter>
+
+    <chapter title="Experimental Settings" id="experimental-settings">
+        <secondary-label ref="experimental"/>
+        <p>Experimental settings are settings that exist within Honeypot that add or enable new features, but can be
+            potentially unstable or cause issues. Over time as these features are developed, they will be considered
+            stable and moved into the proper category</p>
+        <chapter title="storage-method" id="storage-method">
+            <p>Allows server admins to select the best method of storing Honeypot block data, specifically. Honeypot
+                Player and Player History data is stored in SQLite regardless. However, block data, which is queried
+                extremely often, can benefit from different storage methods such as PDC. There are two options</p>
+            <table>
+                <tr>
+                    <td>Type</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td><code>sqlite</code></td>
+                    <td>Stores block data in the <code>honeypot.db</code> file. A "safer" method of storage, however
+                        because it requires disk access it can take slightly longer to query. Recent improvements to
+                        Honeypot has made this difference negligible, but it's still something to note
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>pdc</code></td>
+                    <td>Stores Honeypot data using the PDC (Persistent Data Container) API. Honeypot data is stored as
+                        key-value pairs in the "world" PDC. This also means that Honeypot data is dependent on the
+                        level.dat, and could theoretically be damaged by tools such as Amulet.
+                    </td>
+                </tr>
+            </table>
+            <code-block lang="yaml">storage-method: sqlite</code-block>
+        </chapter>
+
+        <chapter title="allow-third-party-storage-managers" id="allow-third-party-storage-managers">
+            <p>Honeypot allows for third party storage implementations to be programmatically added. This allows
+                developers to add support for other systems like MySQL, H2, PostgreSQL, JSON, etc. As a security
+                measure, this setting is in place to ensure that a third-party implementation doesn't get loaded without
+                consent</p>
+            <code-block lang="yaml">allow-third-party-storage-managers: false</code-block>
+        </chapter>
+    </chapter>
+
+    <chapter title="Credits" id="credits">
+        <p>A functionless config section. The only value in it, <code>thank-you</code>, only exists to ensure the
+            comments above are populated. Without the config value, the YAML parser considers the comments unneeded and
+            ignores them.</p>
+    </chapter>
+
+</topic>

@@ -10,8 +10,17 @@
     </variables>
     <build-profile instance="h">
         <variables>
+            <primary-color>#b39700</primary-color>
             <noindex-content>false</noindex-content>
         </variables>
     </build-profile>
 
+    <footer>
+        <copyright>2024 Nate Reprogle a.k.a. TerrorByte</copyright>
+        <link href="https://github.com/TerrorByteTW/Honeypot">Source Code (GitHub)</link>
+        <link href="https://modrinth.com/plugin/honeypot">Modrinth</link>
+        <link href="https://polymart.org/resource/honeypot-anti-grief.2756">Polymart</link>
+        <link href="https://builtbybit.com/resources/honeypot-anti-grief.24799/">BuiltByBit</link>
+        <link href="https://www.spigotmc.org/resources/honeypot-anti-grief.96665/">Spigot</link>
+    </footer>
 </buildprofiles>

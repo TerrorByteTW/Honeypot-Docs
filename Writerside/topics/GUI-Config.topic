@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       id="GUI-Config" title="GUI Config">
+
+    <title>
+        GUI Config
+    </title>
+    <p>The <code>gui.yml</code> file is responsible for handling the look of <code>/honeypot</code>
+        <resource src="gui.yml">You can download a sample gui.yml file here.</resource>
+    </p>
+
+    <chapter title="Config Settings" id="config-settings">
+        <chapter title="file-version" id="file-version">
+            <p>A number used internally to identify the version of the config file.
+                This number is used to handle file updates and other things. Do not modify it, otherwise you risk your
+                config being damaged</p>
+            <code-block lang="yaml">file-version: 6</code-block>
+        </chapter>
+    </chapter>
+
+    <chapter title="GUI Settings" id="gui-settings">
+        <chapter title="next-page-item" id="next-page-item">
+            <p>The item to display to navigate to the "next" page if multiple pages exist</p>
+            <code-block lang="yaml">next-page-item: ARROW</code-block>
+        </chapter>
+
+        <chapter title="current-page-item" id="current-page-item">
+            <p>The item to display that indicates the current page if multiple pages exist</p>
+            <code-block lang="yaml">current-page-item: NAME_TAG</code-block>
+        </chapter>
+
+        <chapter title="previous-page-item" id="previous-page-item">
+            <p>The item to display to navigate to the "previous" page if multiple pages exist</p>
+            <code-block lang="yaml">previous-page-item: ARROW</code-block>
+        </chapter>
+
+        <chapter title="display-button-as-honeypot" id="display-button-as-honeypot">
+            <p>Should Honeypots reflect their actual material in the GUI, or should they be a static icon? Meaning,
+                should a Honeypot that is a Vine in the world show as a Vine, or some default block?</p>
+            <code-block lang="yaml">display-button-as-honeypot: true</code-block>
+        </chapter>
+
+        <chapter title="default-gui-button" id="default-gui-button">
+            <p>The material to show if <code>display-button-as-honeypot</code> is false</p>
+            <code-block lang="yaml">default-gui-button: DIAMOND_ORE</code-block>
+        </chapter>
+
+        <chapter title="main-buttons.create-button" id="main-buttons.create-button">
+            <p>The material to show on the button representing <code>/honeypot create</code></p>
+            <code-block lang="yaml">
+                main-buttons:
+                    create-button: GREEN_CONCRETE</code-block>
+        </chapter>
+        <chapter title="main-buttons.remove-button" id="main-buttons.remove-button">
+            <p>The material to show on the button representing <code>/honeypot remove</code></p>
+            <code-block lang="yaml">
+                main-buttons:
+                    remove-button: DIAMOND_PICKAXE</code-block>
+        </chapter>
+        <chapter title="main-buttons.list-button" id="main-buttons.list-button">
+            <p>The material to show on the button representing <code>/honeypot list</code></p>
+            <code-block lang="yaml">
+                main-buttons:
+                    list-button: BOOK</code-block>
+        </chapter>
+        <chapter title="main-buttons.locate-button" id="main-buttons.locate-button">
+            <p>The material to show on the button representing <code>/honeypot locate</code></p>
+            <code-block lang="yaml">
+                main-buttons:
+                    locate-button: SPYGLASS</code-block>
+        </chapter>
+        <chapter title="main-buttons.history-button" id="main-buttons.history-button">
+            <p>The material to show on the button representing <code>/honeypot history</code></p>
+            <code-block lang="yaml">
+                main-buttons:
+                    history-button: CLOCK</code-block>
+        </chapter>
+
+        <chapter title="main-buttons.remove-all-button" id="main-buttons.remove-all-button">
+            <p>The material to show on the button representing <code>/honeypot remove all</code></p>
+            <code-block lang="yaml">
+                main-buttons:
+                    remove-all-button: RED_CONCRETE</code-block>
+        </chapter>
+        <chapter title="main-buttons.remove-near-button" id="main-buttons.remove-near-button">
+            <p>The material to show on the button representing <code>/honeypot remove near</code></p>
+            <code-block lang="yaml">
+                main-buttons:
+                    remove-near-button: YELLOW_CONCRETE</code-block>
+        </chapter>
+        <chapter title="main-buttons.remove-target-button" id="main-buttons.remove-target-button">
+            <p>The material to show on the button representing <code>/honeypot remove</code></p>
+            <code-block lang="yaml">
+                main-buttons:
+                    remove-target-button: GREEN_CONCRETE</code-block>
+        </chapter>
+    </chapter>
+
+</topic>

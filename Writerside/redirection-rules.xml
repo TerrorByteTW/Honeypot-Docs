@@ -10,4 +10,8 @@
         <description>Created after removal of "Translating Honeypot" from Honeypot</description>
         <accepts>Translating-Honeypot.html</accepts>
     </rule>
+    <rule id="269d1cb9">
+        <description>Created after removal of "Starter" from Honeypot</description>
+        <accepts>starter.html</accepts>
+    </rule>
 </rules>

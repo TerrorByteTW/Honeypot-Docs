@@ -1,3 +1,3 @@
-# Custom Honeypot Config
+# Custom Honeypot Actions
 
 Start typing here...
