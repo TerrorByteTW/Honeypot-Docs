@@ -92,7 +92,7 @@
                 <!--suppress WrsCodeBlockWidthInspection -->
                 <code-block lang="yaml">
                     ######################################################################
-                    # C H A T S E T T I N G S #
+                    #                      C H A T   S E T T I N G S                     #
                     ######################################################################
 
                     # Select your language. Current supported languages are: [en_US, es_MX, fr_FR, ja_JP, zh_CN]
