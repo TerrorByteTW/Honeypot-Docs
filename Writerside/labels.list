@@ -6,8 +6,23 @@
         New feature
     </primary-label>
 
+    <primary-label id="configuration" name="Configuration" short-name="CONF">
+        This article only explains configurations. Any configurations shown should be considered examples, and not
+        proper configurations. Be sure to configure Honeypot to your needs!
+    </primary-label>
+
+    <primary-label id="dependency-required" name="Dependency Required" short-name="DR" color="blue">This feature is fully dependent
+        on a 3rd party plugin. Without that plugin, this feature won't work. Review the Wiki for further details.
+    </primary-label>
+
     <secondary-label id="experimental" name="Experimental" color="purple">This feature is experimental and may be
         unstable or removed in the future
+    </secondary-label>
+
+    <secondary-label id="uses-dependency" name="Uses Dependencies" color="tangerine">This feature uses 3rd party
+        plugin dependencies for some or all parts of its functionality. Please be sure to closely consult the Wiki to
+        ensure these dependencies are met. Without these other plugins, utilizing these features may cause Honeypot to
+        silently fail or exhibit unexpected behavior.
     </secondary-label>
 
 </labels>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       id="Custom-Honeypot-Config" title="Custom Honeypot Actions">
+
+    <title>
+        Custom Honeypot Actions
+    </title>
+    <show-structure depth="2"/>
+    <primary-label ref="configuration"/>
+    <p>If the built-in Honeypot actions aren't enough for you (And, let's face it, they likely aren't), you can
+        customize your
+        own by defining them in <code>honeypots.yml</code>.</p>
+    <chapter title="Defining a Honeypot" id="defining-a-honeypot">
+        <p>To get started, find the <code>honeypots.yml</code> file within your configuration. You can download a sample
+            file
+            <resource src="honeypots.yml">here</resource>
+            .
+        </p>
+
+        <p>This file already contains a few demo Honeypot actions. Let's take a look at the first one, <code>demo-everthing</code>
+        </p>
+
+        <code-block lang="yaml" ignore-vars="true">
+            demo-everything:
+                commands:
+                    - "eco take %player% 1000"
+                    - "minecraft:clear %player%"
+                permissions-add:
+                    - my.special.permission
+                permissions-remove:
+                    - essentials.kit
+                    - essentials.back
+                broadcasts:
+                    - "%player% was caught breaking a Honeypot at %bLocation%! Everyone boo them"
+                    - "You can have more than one message in the broadcast field"
+                messages:
+                    - "Bad player! You've been fined &lt;red&gt;$1000&lt;/red&gt;&lt;reset&gt; for breaking Honeypots"
+                icon: HONEY_BLOCK
+        </code-block>
+
+        Let's break this down piece by piece
+
+        <chapter title="demo-everything" id="demo-everthing">
+            The root key of the action is the name of the action as well. You can name an action whatever you want, as
+            long as it's legal YAML. In this case, since the section is named <code>demo-everything</code>, then the
+            action will be shown as "demo-everything" in-game.
+        </chapter>
+
+        <chapter title="commands" id="commands">
+            <code-block lang="yaml" ignore-vars="true">
+                commands:
+                    - "eco take %player% 1000"
+                    - "minecraft:clear %player%"
+            </code-block>
+
+            The <code>commands</code> list is a list of commands that Honeypot will run as the Console. Because
+            the player is not running the commands but rather the Server, Honeypot has some <a
+                href="Custom-Honeypot-Config.topic" anchor="placeholders">placeholders</a> built-in, as well as support
+            for
+            PlaceholderAPI placeholders, that can be used to target whatever is needed in a command. MiniMessage in
+            commands is <b>not</b> supported.
+
+            <p>You can have as
+                many commands as you like, or as few as you like, or even none at all. If you don't need to use
+                commands, you can omit the array entirely, or set it to <code>[ ]</code>
+                instead.</p>
+
+            <warning>Commands are run as the Console. This essentially means that the command is run
+                regardless of permissions, as if it was being run by an Op. Be sure that A) your command is console
+                compatible, and B) that you're okay with the command being run with the highest level of permission.
+            </warning>
+        </chapter>
+
+        <chapter title="permissions" id="permissions">
+            <secondary-label ref="uses-dependency"/>
+            <code-block lang="yaml">
+                permissions-add:
+                    - my.special.permission
+                permissions-remove:
+                    - essentials.kit
+                    - essentials.back
+            </code-block>
+
+            <p>The <code>permissions-add</code> and <code>permissions-remove</code> sections allow you to grant or
+                revoke permissions on break. <b>Permissions require Vault in order to function!</b> If this feature is
+                used while Vault is uninstalled, a log message will be put in Console regarding Vault not being
+                installed. Adding or removing permissions is a great way to discipline players without affecting their
+                overall gameplay. For example, you could configure your shop plugin to double the price of all items if
+                a certain permission is granted, or you can revoke the ability to /tpa if you want. Possibilities are
+                endless</p>
+
+            <p>You can add or remove as
+                many permissions as you like, or as few as you like, or even none at all. If you don't need to use
+                permissions or can't due to a lack of Vault, you can omit the array entirely, or set it to <code>[
+                    ]</code>
+                instead.</p>
+        </chapter>
+
+        <chapter title="broadcasts" id="broadcasts">
+            The <code>broadcasts</code> list is a list of messages that Honeypot will send to all players on the Server.
+            Note this is all players on <i>this</i> server, Broadcasts on networks using a proxy such as Bungee or
+            Velocity will not have the message sent to all of them.
+
+            <p>You can have as
+                many broadcasts as you like, or as few as you like, or even none at all. Broadcasts can also include
+                MiniMessage tags, Honeypot <a href="Custom-Honeypot-Config.topic" anchor="placeholders">placeholders</a>,
+                and PlaceholderAPI placeholders. If you don't need to use broadcasts, you can omit the array entirely,
+                or
+                set it to <code>[ ]</code> instead.</p>
+        </chapter>
+
+        <chapter title="messages" id="messages">
+            The <code>messages</code> list is a list of messages that Honeypot will send to the player directly.
+
+            <p>You can have as
+                many messages as you like, or as few as you like, or even none at all. Messages can also include
+                MiniMessage tags, Honeypot <a href="Custom-Honeypot-Config.topic" anchor="placeholders">placeholders</a>,
+                and PlaceholderAPI placeholders. If you don't need to use
+                messages, you can omit the array entirely, or set it to <code>[ ]</code>
+                instead.</p>
+        </chapter>
+
+        <chapter title="icon" id="icon">
+            The <code>icon</code> property in the action is what to show the action as when putting it up in the
+            Honeypot GUI. This icon field is the name of the Material as it is in Bukkit's materials list, <a
+                href="https://jd.papermc.io/paper/1.21.3/org/bukkit/class-use/Material.html">found here</a>.
+
+            <p>An icon is <b>required</b> for a definition to be valid</p>
+        </chapter>
+    </chapter>
+
+    <chapter title="Placeholders" id="placeholders">
+        <secondary-label ref="uses-dependency"/>
+        <p>Honeypot contains several built-in placeholders as well as support for PlaceholderAPI placeholders when
+            formatting messages, broadcasts and commands. The four built-in placeholders in Honeypot should not be
+            confused with PlaceholderAPI placeholders, as they are only available within custom actions and nowhere
+            else.</p>
+
+        <p>Honeypot does not require Placeholder API to function, however if you want to use other Placeholders then it
+            is required.</p>
+
+        <tip>Honeypot evaluates its built-in Placeholders before evaluating PlaceholderAPI placeholders.</tip>
+
+        <table>
+            <tr>
+                <td>Placeholder</td>
+                <td>Description</td>
+                <td>Example</td>
+            </tr>
+            <tr>
+                <td>&percnt;player&percnt;</td>
+                <td>The name of the player that triggered the action</td>
+                <td>TerrorByte</td>
+            </tr>
+            <tr>
+                <td>&percnt;pLocation&percnt;</td>
+                <td>The coordinates of the player when the action was taken</td>
+                <td>123 75 -48</td>
+            </tr>
+            <tr>
+                <td>&percnt;bLocation&percnt;</td>
+                <td>The coordinates of the Honeypot block that the player broke to trigger the action</td>
+                <td>120 75 -47</td>
+            </tr>
+            <tr>
+                <td>&percnt;world&percnt;</td>
+                <td>The name of the world the Honeypot was in</td>
+                <td>world</td>
+            </tr>
+        </table>
+    </chapter>
+
+    <chapter title="Using your action" id="using-your-actino">
+        <p>Using your custom action is extremely simple, just reload the plugin using <code>/honeypot reload</code> and
+            follow one of the below methods</p>
+
+        <list>
+            <li>Type <code>/honeypot create &lt;action name&gt;</code>. Enabled behavior providers (Including the
+                built-in ones) and custom actions
+                will be displayed in the same list. Action Name will tab-complete based on the names you provided your
+                actions.
+                <tip>
+                    Behavior providers take precedence over custom actions. If a behavior provider and action are both
+                    named "blow-up-player" as an example, the Behavior Provider will be what is used.
+                </tip>
+            </li>
+            <li>Run <code>/honeypot</code>, <code>/honeypot gui</code>, or <code>/hp</code> to open the GUI. Clicking
+                the "Create" button will display all the types of Honeypots you can create. Items in the GUI will
+                display as what was defined in the action's configuration. All items have names corresponding to their
+                name in the configuration as well, making identifying your action quick and easy.
+            </li>
+        </list>
+    </chapter>
+
+
+</topic>

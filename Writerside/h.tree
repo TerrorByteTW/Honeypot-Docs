@@ -4,26 +4,26 @@
 
 <instance-profile id="h"
                  name="Honeypot"
-                 start-page="Overview.md">
+                 start-page="Overview.topic">
 
-    <toc-element topic="Overview.md"/>
-    <toc-element topic="Configuration.md">
+    <toc-element topic="Overview.topic"/>
+    <toc-element topic="Configuration.topic">
         <toc-element topic="Plugin-Config.topic"/>
-        <toc-element topic="Custom-Honeypot-Config.md"/>
+        <toc-element topic="Custom-Honeypot-Config.topic"/>
         <toc-element topic="GUI-Config.topic"/>
         <toc-element topic="Language-Files.topic"/>
     </toc-element>
-    <toc-element topic="Commands.md"/>
-    <toc-element topic="Third-Party-Integrations.md">
-        <toc-element topic="PlaceholderAPI.md"/>
-        <toc-element topic="WorldGuard.md"/>
-        <toc-element topic="GriefPrevention.md"/>
-        <toc-element topic="Vault.md"/>
-        <toc-element topic="Lands.md"/>
+    <toc-element topic="Commands.topic"/>
+    <toc-element topic="Third-Party-Integrations.topic">
+        <toc-element topic="PlaceholderAPI.topic"/>
+        <toc-element topic="WorldGuard.topic"/>
+        <toc-element topic="GriefPrevention.topic"/>
+        <toc-element topic="Vault.topic"/>
+        <toc-element topic="Lands.topic"/>
     </toc-element>
-    <toc-element topic="Adding-Functionality.md">
-        <toc-element topic="Events.md"/>
-        <toc-element topic="Storage-Providers.md"/>
-        <toc-element topic="Behavior-Providers.md"/>
+    <toc-element topic="Adding-Functionality.topic">
+        <toc-element topic="Events.topic"/>
+        <toc-element topic="Storage-Providers.topic"/>
+        <toc-element topic="Behavior-Providers.topic"/>
     </toc-element>
 </instance-profile>

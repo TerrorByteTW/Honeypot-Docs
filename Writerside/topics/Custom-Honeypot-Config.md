@@ -1,3 +1,0 @@
-# Custom Honeypot Actions
-
-Start typing here...

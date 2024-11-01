@@ -8,6 +8,7 @@
         GUI Config
     </title>
     <show-structure depth="2" />
+    <primary-label ref="configuration"/>
     <p>The <code>gui.yml</code> file is responsible for handling the look of <code>/honeypot</code>
         <resource src="gui.yml">You can download a sample gui.yml file here.</resource>
     </p>

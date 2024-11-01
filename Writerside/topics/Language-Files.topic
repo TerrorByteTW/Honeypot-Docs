@@ -8,7 +8,7 @@
         Language Files
     </title>
     <show-structure depth="2"/>
-
+    <primary-label ref="configuration"/>
     <p>Language files are a way to translate Honeypot's chat output to your native language. They also allow for custom
         formatting of messages, and even changing the prefix of Honeypot to remove its branding if you so chose!</p>
 
