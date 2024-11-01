@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       id="Adding-Functionality" title="Develop with Honeypot">
+
+    <title>
+        Develop with Honeypot
+    </title>
+    <chapter title="Develop with Honeypot" id="develop-with-honeypot">
+        <p>There may be a time when even custom actions aren't enough to meet the needs of your server. Maybe you need
+            some conditional logic in your action (Maybe set fire to the player if they're in the desert, or freeze them
+            in the arctic). Maybe Honeypot would run better on your server using YAML, JSON, H2, or maybe you want
+            to be able to run custom code when Honeypots are broken</p>
+
+        <p>Honeypot provides a powerful API which allows you to extend its functionality easily and securely. See the
+            sidebar for the various features and functions Honeypot exposes</p>
+    </chapter>
+
+</topic>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       id="Third-Party-Integrations" title="Third Party Integrations">
+
+    <title>
+        Third Party Integrations
+    </title>
+    <p>Honeypot supports multiple different third party integrations which allow it to tie in even more deeply to your
+        server and its software. Currently, Honeypot provides the following integrations:</p>
+    <list>
+        <li>
+            <a href="PlaceholderAPI.topic" />
+        </li>
+        <li>
+            <a href="WorldGuard.topic"/>
+        </li>
+        <li>
+            <a href="GriefPrevention.topic"/>
+        </li>
+        <li>
+            <a href="Vault.topic" />
+        </li>
+        <li>
+            <a href="Lands.topic" />
+        </li>
+    </list>
+
+</topic>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       id="GriefPrevention" title="GriefPrevention">
+
+    <title>
+        GriefPrevention
+    </title>
+    <primary-label ref="dependency-required"/>
+    <p>The GriefPrevention integration allows Honeypot to check the build permissions of staff before placing a Honeypot
+        in a claimed area. Setting the <a href="Plugin-Config.topic">plugin config</a> value to true will allow staff to
+        place Honeypot blocks if they have build permission in a claimed area. Setting it to false will always deny
+        Honeypot creation in claimed areas.
+    </p>
+
+    <seealso>
+        <category ref="references">
+            <a href="Plugin-Config.topic">Plugin Configuration</a>
+        </category>
+    </seealso>
+
+</topic>

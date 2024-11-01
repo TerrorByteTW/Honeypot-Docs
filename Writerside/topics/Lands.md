@@ -1,3 +1,0 @@
-# Lands
-
-Start typing here...

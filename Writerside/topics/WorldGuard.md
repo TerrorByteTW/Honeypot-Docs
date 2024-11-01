@@ -1,3 +1,0 @@
-# WorldGuard
-
-Start typing here...

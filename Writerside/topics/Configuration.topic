@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       id="Configuration" title="Configuration">
+
+    <title>
+        Configuration
+    </title>
+    <p>Honeypot contains three different configuration files and, as of writing, five different language translation
+        files.
+        These are</p>
+    <list>
+        <li>
+            <a href="Plugin-Config.topic">config.yml</a>
+        </li>
+        <li>
+            <a href="Custom-Honeypot-Config.topic">honeypots.yml</a>
+        </li>
+        <li>
+            <a href="GUI-Config.topic">gui.yml</a>
+        </li>
+        <li>
+            <a href="Language-Files.topic">Several language files</a>
+        </li>
+    </list>
+
+</topic>

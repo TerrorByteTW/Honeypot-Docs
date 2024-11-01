@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       id="Commands" title="Commands &amp; Permissions">
+
+    <title>
+        Commands &amp; Permissions
+    </title>
+    <p>Honeypot contains a variety of commands &amp; permissions. Reference the chart below for those commands</p>
+    <chapter title="Main Commands" id="main-commands">
+        <p>Staff will require the <code>honeypot.commands</code> permission to use any commands, including <code>/honeypot
+            help</code>.</p>
+        <table>
+            <tr>
+                <td>Command</td>
+                <td>Permission</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>/honeypot</td>
+                <td>honeypot.gui</td>
+                <td>Alias for <code>/honeypot gui</code></td>
+            </tr>
+            <tr>
+                <td>/honeypot create &lt;type&gt;</td>
+                <td>honeypot.create</td>
+                <td>Creates a honeypot of type <code>type</code></td>
+            </tr>
+            <tr>
+                <td>/honeypot remove (near | all)</td>
+                <td>honeypot.remove</td>
+                <td>Remove the honeypot you're looking at. Specify <code>near</code> or <code>all</code> to remove
+                    nearby Honeypots or all Honeypots
+                </td>
+            </tr>
+            <tr>
+                <td>/honeypot reload</td>
+                <td>honeypot.reload</td>
+                <td>Reloads the honeypot config. This is the only command that'll work in the console</td>
+            </tr>
+            <tr>
+                <td>/honeypot locate (radius)</td>
+                <td>honeypot.locate</td>
+                <td>Locate nearby Honeypots. The radius defaults to the config value unless provided, which will
+                    temporarily override the search radius
+                </td>
+            </tr>
+            <tr>
+                <td>/honeypot help</td>
+                <td></td>
+                <td>Display the help menu</td>
+            </tr>
+            <tr>
+                <td>/honeypot gui</td>
+                <td>honeypot.gui</td>
+                <td>Opens the GUI menu</td>
+            </tr>
+            <tr>
+                <td>/honeypot history</td>
+                <td>honeypot.history</td>
+                <td>Allows looking up a players honeypot history</td>
+            </tr>
+            <tr>
+                <td>/honeypot migrate</td>
+                <td>honeypot.migrate</td>
+                <td>Migrates a server from SQLite to PDC if they chose to use that new experimental storage method</td>
+            </tr>
+        </table>
+    </chapter>
+    <chapter title="Other Permissions" id="other-permissions">
+        <table>
+            <tr>
+                <td>Permission</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>honeypot.*</td>
+                <td>Gives access to all Honeypot commands and permissions</td>
+            </tr>
+            <tr>
+                <td>honeypot.break</td>
+                <td>Allows players to break Honeypots, regardless of config values.<br/> They still cannot use <code>/honeypot
+                    remove</code></td>
+            </tr>
+            <tr>
+                <td>honeypot.notify</td>
+                <td>Anyone with this permission will be notified if players break &quot;notify&quot; honeypots</td>
+            </tr>
+            <tr>
+                <td>honeypot.exempt</td>
+                <td>Players with this permission will not be affected by Honeypots</td>
+            </tr>
+        </table>
+    </chapter>
+
+</topic>

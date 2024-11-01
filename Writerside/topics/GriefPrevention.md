@@ -1,3 +1,0 @@
-# GriefPrevention
-
-Start typing here...

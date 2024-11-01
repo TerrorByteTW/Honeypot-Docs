@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       id="Vault" title="Vault">
+
+    <title>
+        Vault
+    </title>
+    <primary-label ref="dependency-required"/>
+    <p>Vault enables the permissions functionality of custom Honeypot actions. If you want to add or remove Permissions
+        from players at will, you will require Vault.</p>
+
+    <tip>
+        Vault is not a feature plugin, but rather a library. It allows economy, chat, and permission providers to hook
+        into it so plugin developers can more easily integrate into the dozens of providers out there using one
+        single, simple API. Vault is a requirement for using the permission features. However, it is optional in
+        general.
+    </tip>
+
+</topic>

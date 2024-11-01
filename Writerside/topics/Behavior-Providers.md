@@ -1,3 +1,0 @@
-# Behavior Providers
-
-Start typing here...

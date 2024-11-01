@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       id="Lands" title="Lands">
+
+    <title>
+        Lands
+    </title>
+    <primary-label ref="dependency-required"/>
+    <p>The Lands integration allows Honeypot to check for claimed Lands prior to creating Honeypots. If the land is
+        claimed, Honeypot denies the creation. This is currently not configurable.</p>
+
+</topic>
