@@ -7,6 +7,69 @@
     <title>
         Storage Providers
     </title>
-    <p>Start typing here...</p>
+    <primary-label ref="new"/>
+    <secondary-label ref="experimental"/>
+    <secondary-label ref="advanced"/>
+
+    <chapter id="technical-info" title="Technical Information">
+        <p>Storage Providers are a brand-new feature in Honeypot 3.4.0 that allows developers to create different
+            methods of
+            storing Honeypot blocks should the built-in methods not be enough for their specific use case.</p>
+
+        <p>Honeypot has two native storage methods: PDC and SQLite. SQLite is always used for storing player
+            and player history information. However, Block data, the location and action of a Honeypot, is queried much
+            more frequently. It is necessary to have different methods of storage allows server managers to pick what is
+            best for them</p>
+
+        <p>The SQLite DB has been architected to use an <a href="https://en.wikipedia.org/wiki/R*-tree">R*-Tree</a> data
+            structure, a variant of an <a href="https://en.wikipedia.org/wiki/R-tree">R-Tree</a> data structure but with
+            better query performance. PDC uses custom formatted key and value strings and stores all keys within the
+            <code>world</code> container. In testing, these methods allowed Honeypot to search a
+            2,000,000<!--suppress WrsMissingSpaceChecker --><sup>3</sup> block area
+            within milliseconds.</p>
+
+        <p>Because Honeypot can achieve such extreme query times without nearly any overhead, it's recommended that you
+            stick with the native Honeypot storage methods unless you know you absolutely need something else.</p>
+
+        <warning>Honeypot processes synchronously, meaning that it expects events and actions to be processed
+            as they happen, not at some future point in time. Creating asynchronous storage providers will have
+            unintended side effects, since Honeypot does not expect to deal with asynchronous objects such as
+            <code>Future</code>'s.
+        </warning>
+    </chapter>
+
+    <chapter title="Using Storage Providers" id="using-storage-providers">
+        <p>To use a storage provider, you must first create the provider by extending StorageProvider from the Honeypot
+            API. You must also annotate the class with <code>@HoneypotStore</code>. The annotation requires a
+            <code>name</code> property, which is case-insensitive and must be unique. The below class is just a logging
+            class for testing a store. You are responsible for the actual storage logic</p>
+
+        <code-block lang="java" src="DemoHoneypotStore.java" disable-links="false"/>
+
+        <p>Once the storage provider is complete, you must register it in your <code>onLoad()</code> method.</p>
+
+        <code-block lang="java" src="demoStorageProvider.java" disable-links="false"/>
+
+        <p>Honeypot will allow registrations of storage providers only on load, so you cannot reload Honeypot using
+            <code>/reload</code> or a plugin like PlugManX. In order to use the behavior provider that was added, see
+            <a href="Plugin-Config.topic" anchor="experimental-settings">Configuring Honeypot</a>. You must update
+            the name of the storage method to what you set in the <code>@HoneypotStore</code> annotation, and you must
+            enable the third party storage manager flag.
+        </p>
+
+        <note>
+            Believe it or not, unlike Behavior Providers, Storage Providers <i>can</i> be changed during server runtime
+            with <code>/honeypot reload</code>. However, new ones cannot be registered, they can only be <i>changed</i>.
+        </note>
+    </chapter>
+
+    <seealso>
+        <category ref="api-reference">
+            <a href="Adding-Functionality.topic"/>
+            <a href="Events.topic"/>
+            <a href="Behavior-Providers.topic"/>
+            <a href="https://github.com/TerrorByteTW/HoneypotAPI-Test-Plugin">Demo Plugin</a>
+        </category>
+    </seealso>
 
 </topic>

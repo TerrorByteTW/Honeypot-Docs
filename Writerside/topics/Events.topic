@@ -7,6 +7,116 @@
     <title>
         Events
     </title>
-    <p>Start typing here...</p>
+    <secondary-label ref="advanced"/>
+    <chapter id="events" title="Events">
+        <p>Honeypot publishes nine separate events for plugins to listen to. Each event (except one) is has two types:
+            the regular variant, and a "Pre" variant.</p>
+
+        <p>The regular variant is called after the corresponding trigger is
+            processed, while the "Pre" version is called before the corresponding trigger is processed. Consequently,
+            only the "Pre" variant is cancellable.</p>
+
+        <table>
+            <tr>
+                <td>Event Name</td>
+                <td>Description</td>
+                <td>Cancellable</td>
+            </tr>
+            <tr>
+                <td><code>HoneypotPreCreateEvent</code></td>
+                <td>Called when a Honeypot is about to be created, regardless of if the creation would be successful. If
+                    cancelled the Honeypot creation is also cancelled.
+                </td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td><code>HoneypotCreateEvent</code></td>
+                <td>Called after, and <i>only</i> after, a Honeypot is <i>successfully</i> created</td>
+                <td>No</td>
+            </tr>
+            <tr>
+                <td><code>HoneypotPrePlayerBreakEvent</code></td>
+                <td>Called before Honeypot processes an action from a Honeypot block the player broke. If cancelled, the
+                    Honeypot block will break just like any other Minecraft block without consequences.
+                </td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td><code>HoneypotPlayerBreakEvent</code></td>
+                <td>Called after Honeypot finishes processing an action from a Honeypot block triggered by a player
+                    breaking
+                    it
+                </td>
+                <td>No</td>
+            </tr>
+            <tr>
+                <td><code>HoneypotNonPlayerBreakEvent</code></td>
+                <td>A unique event which does not have a "Pre" variant, this event is called when a non-player entity or
+                    block takes attempts to modify a Honeypot (pistons, fire, TNT, creepers, etc.). A player may have
+                    <i>caused</i> this event to trigger, but the actual object doing the modification was not the player
+                    (Such as TNT ignited by the player. The TNT did the actual modification, but the player caused it)
+                </td>
+                <td>No</td>
+            </tr>
+            <tr>
+                <td><code>HoneypotPreInteractEvent</code></td>
+                <td>Called before Honeypot processes an action from a Honeypot container the player interacted with. The
+                    player may have permission to bypass the event, so this event doesn't necessarily indicate a
+                    successful
+                    Honeypot trigger. If cancelled, Honeypot will cease further processing of the event, allowing the
+                    player
+                    to interact as normal without consequences.
+                </td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td><code>HoneypotInteractEvent</code></td>
+                <td>Called after Honeypot finishes processing an interact event. This event is always called at the end
+                    of
+                    processing, whether action was taken or not (Such as if the player had bypass permission).
+                </td>
+                <td>No</td>
+            </tr>
+            <tr>
+                <td><code>HoneypotPreInventoryClickEvent</code></td>
+                <td>Called before Honeypot processes an action from a Honeypot container in which the player clicked
+                    inside
+                    its inventory. If cancelled, Honeypot will stop processing the event and the event will be allowed
+                    as
+                    normal.
+                </td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td><code>HoneypotInventoryClickEvent</code></td>
+                <td>Called after Honeypot finishes processing an inventory click event. Unlike HoneypotInteractEvent,
+                    this
+                    event is only called upon successful processing of an inventory click action. This may change in the
+                    future to standardize behavior across events.
+                </td>
+                <td>No</td>
+            </tr>
+        </table>
+    </chapter>
+
+    <chapter id="example" title="Listening to Events">
+        <p>All Honeypot events are registered in the <code>org.reprogle.honeypot.api.events</code> package. Here is the
+            simplest example of listening to events from Honeypot</p>
+
+        <note>
+            Click on the package or event type to view the JavaDocs
+        </note>
+
+        <code-block lang="java" src="demoPlugin.java" disable-links="false"/>
+    </chapter>
+
+    <seealso>
+        <category ref="api-reference">
+            <a href="Adding-Functionality.topic"/>
+            <a href="Behavior-Providers.topic"/>
+            <a href="Storage-Providers.topic"/>
+            <a href="https://github.com/TerrorByteTW/HoneypotAPI-Test-Plugin">Demo Plugin</a>
+        </category>
+    </seealso>
 
 </topic>

@@ -8,13 +8,120 @@
         Develop with Honeypot
     </title>
     <chapter title="Develop with Honeypot" id="develop-with-honeypot">
-        <p>There may be a time when even custom actions aren't enough to meet the needs of your server. Maybe you need
-            some conditional logic in your action (Maybe set fire to the player if they're in the desert, or freeze them
-            in the arctic). Maybe Honeypot would run better on your server using YAML, JSON, H2, or maybe you want
-            to be able to run custom code when Honeypots are broken</p>
+        <p>There may be situations in which even custom actions aren't enough to meet the needs of your server.</p>
 
-        <p>Honeypot provides a powerful API which allows you to extend its functionality easily and securely. See the
-            sidebar for the various features and functions Honeypot exposes</p>
+        <p>Honeypot provides a simple but powerful API which allows you to extend its functionality. Currently, you can
+            listen to <a href="Events.topic"/>, add <a href="Behavior-Providers.topic">custom behaviors</a>, and add
+            custom <a href="Storage-Providers.topic">block storage solutions</a> should PDC and SQLite not fit your use
+            case. See the sidebar for the various features and functions Honeypot exposes</p>
+
+        <p>Honeypot's JavaDocs are automatically published via JitPack. You can view the docs for the latest version <a
+                href="https://javadoc.jitpack.io/com/github/TerrorByteTW/Honeypot/honeypot-api/latest/javadoc/index.html">here</a>.
+        </p>
+
+        <tip>
+            If you have any issues, please be sure to report them on the <a
+                href="https://github.com/TerrorByteTW/Honeypot/issues">issuer tracker</a>. Honeypot also provides <a
+                href="https://github.com/TerrorByteTW/HoneypotAPI-Test-Plugin">a demo plugin here</a> which you can use
+            to look at fully functional demo code which utilized the Honeypot API.
+        </tip>
     </chapter>
+
+    <chapter id="configuring-ide" title="Configuring Honeypot In Your Project">
+        <p>I personally use Gradle, however I find most people use Maven for their plugins when first starting out. If
+            you are using Gradle, the instructions are similar.</p>
+
+        <chapter id="maven-jitpack" title="Using Maven and Jitpack">
+            <p>Add the repo and the dependency to your <code>pom.xml</code></p>
+
+            <code-block lang="xml"><![CDATA[
+                <repositories>
+                    <repository>
+                        <id>jitpack.io</id>
+                        <url>https://jitpack.io</url>
+                    </repository>
+                </repositories>
+            ]]></code-block>
+            <code-block lang="xml"><![CDATA[
+                <dependency>
+                    <groupId>org.reprogle.Honeypot</groupId>
+                    <artifactId>honeypot-api</artifactId>
+                    <version>API_VERSION</version>
+                    <scope>provided</scope>
+                </dependency>
+            ]]></code-block>
+
+            <p>Replace the API_VERSION with the version of the API you want. You can also enter something like <code>[3.4.0,)</code>
+                to use, at minimum, version 3.4.0 but try to use the latest available. If the version hasn't been built
+                by Jitpack yet, then it may look like Maven will "freeze" on downloading. Don't worry! It's just
+                building the API, and this may take a while (3-5 minutes usually).</p>
+        </chapter>
+
+        <chapter id="maven-gh-packages" title="Using Maven and GitHub Packages">
+            <p>Add the repo and the dependency to your <code>pom.xml</code></p>
+
+            <code-block lang="xml"><![CDATA[
+                <repositories>
+                    <repository>
+                        <id>github</id>
+                        <name>GitHub TerrorByteTW Apache Maven Packages</name>
+                        <url>https://maven.pkg.github.com/TerrorByteTW/Honeypot</url>
+                        <releases>
+                            <enabled>true</enabled>
+                        </releases>
+                        <snapshots>
+                            <enabled>true</enabled>
+                        </snapshots>
+                    </repository>
+                </repositories>
+            ]]></code-block>
+            <code-block lang="xml"><![CDATA[
+                <dependency>
+                    <groupId>org.reprogle.Honeypot</groupId>
+                    <artifactId>honeypot-api</artifactId>
+                    <version>API_VERSION</version>
+                    <scope>provided</scope>
+                </dependency>
+            ]]></code-block>
+
+            <p>Replace the API_VERSION with the version of the API you want. You can also enter something like <code>[3.4.0,)</code>
+                to use, at minimum, version 3.4.0 but try to use the latest available.</p>
+
+            <p>Add the authentication to the Package Registry in your global <code>settings.xml</code>: <code>USER_HOME\.m2\settings.xml</code>
+            </p>
+
+            <code-block lang="xml"><![CDATA[
+                <servers>
+                    <server>
+                        <id>github</id>
+                        <username>YOUR_USERNAME</username>
+                        <password>YOUR_AUTH_TOKEN</password>
+                    </server>
+                </servers>
+            ]]></code-block>
+
+            <p>For more information on creating an auth token, see this article: <a
+                    href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens">Creating
+                a personal access token</a></p>
+
+            <p>Replace the <code>YOUR_AUTH_TOKEN</code> with a generated GitHub personal access token: <i>GitHub >
+                Settings
+                > Developer Settings > Personal access tokens > Generate new token</i>. The token needs at least the
+                read:packages scope.</p>
+
+            <p>Shading is not necessary as Honeypot Core is required for use with this API. You will need to either <a
+                    href="https://www.spigotmc.org/wiki/plugin-yml/#optional-attributes">"depend"
+                or "softdepend"</a> Honeypot in your plugin.yml</p>
+        </chapter>
+    </chapter>
+
+    <seealso>
+        <category ref="api-reference">
+            <a href="Events.topic"/>
+            <a href="Behavior-Providers.topic"/>
+            <a href="Storage-Providers.topic"/>
+            <a href="https://github.com/TerrorByteTW/HoneypotAPI-Test-Plugin">Demo Plugin</a>
+        </category>
+    </seealso>
 
 </topic>

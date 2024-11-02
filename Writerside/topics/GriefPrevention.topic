@@ -18,6 +18,12 @@
         <category ref="references">
             <a href="Plugin-Config.topic">Plugin Configuration</a>
         </category>
+        <category ref="integrations">
+            <a href="WorldGuard.topic" />
+            <a href="PlaceholderAPI.topic" />
+            <a href="Vault.topic" />
+            <a href="Lands.topic" />
+        </category>
     </seealso>
 
 </topic>

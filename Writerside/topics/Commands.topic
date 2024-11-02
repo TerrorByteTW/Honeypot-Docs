@@ -48,6 +48,7 @@
             </tr>
             <tr>
                 <td>/honeypot help</td>
+                <!--suppress CheckTagEmptyBody -->
                 <td></td>
                 <td>Display the help menu</td>
             </tr>

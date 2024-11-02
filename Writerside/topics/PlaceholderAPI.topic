@@ -50,4 +50,13 @@
         </p>
     </chapter>
 
+    <seealso>
+        <category ref="integrations">
+            <a href="WorldGuard.topic"/>
+            <a href="GriefPrevention.topic"/>
+            <a href="Vault.topic"/>
+            <a href="Lands.topic"/>
+        </category>
+    </seealso>
+
 </topic>

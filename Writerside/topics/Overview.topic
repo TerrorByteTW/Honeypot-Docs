@@ -7,6 +7,12 @@
     <title>
         Welcome to the Honeypot Wiki
     </title>
+
+    <note>
+        This new Wiki is a work in progress! All the information is here, but I'd like to add videos, images, and update
+        some formatting. if you struggle to find something, please don't hesitate to reach out on Discord 😄
+    </note>
+
     <chapter title="What is Honeypot?" id="what-is-honeypot">
         <p>
             <tooltip term="honeypot">Honeypot</tooltip>

@@ -8,7 +8,6 @@
         Custom Honeypot Actions
     </title>
     <show-structure depth="2"/>
-    <primary-label ref="configuration"/>
     <p>If the built-in Honeypot actions aren't enough for you (And, let's face it, they likely aren't), you can
         customize your
         own by defining them in <code>honeypots.yml</code>.</p>

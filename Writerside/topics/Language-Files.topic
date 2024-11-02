@@ -16,7 +16,7 @@
         <resource src="en_US.yml">sample translation in the en_US language here</resource>
     </p>
 
-    <chapter title="Translating Honeypot">
+    <chapter title="Translating Honeypot" id="translating-honeypot">
         <p>If you're here to learn how to translate Honeypot, thank you! There are two ways you can do this, one is
             easier than the other but the other makes it easier on <i>me</i> lol</p>
 

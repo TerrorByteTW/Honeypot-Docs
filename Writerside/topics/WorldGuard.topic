@@ -18,4 +18,13 @@
             locate</code> and <code>/honeypot remove near</code> will suffice.
     </note>
 
+    <seealso>
+        <category ref="integrations">
+            <a href="PlaceholderAPI.topic"/>
+            <a href="GriefPrevention.topic"/>
+            <a href="Vault.topic"/>
+            <a href="Lands.topic"/>
+        </category>
+    </seealso>
+
 </topic>

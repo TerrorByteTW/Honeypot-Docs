@@ -9,11 +9,11 @@
     <toc-element topic="Overview.topic"/>
     <toc-element topic="Configuration.topic">
         <toc-element topic="Plugin-Config.topic"/>
-        <toc-element topic="Custom-Honeypot-Config.topic"/>
         <toc-element topic="GUI-Config.topic"/>
         <toc-element topic="Language-Files.topic"/>
     </toc-element>
     <toc-element topic="Commands.topic"/>
+    <toc-element topic="Custom-Honeypot-Config.topic"/>
     <toc-element topic="Third-Party-Integrations.topic">
         <toc-element topic="PlaceholderAPI.topic"/>
         <toc-element topic="WorldGuard.topic"/>

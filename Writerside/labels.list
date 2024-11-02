@@ -11,7 +11,8 @@
         proper configurations. Be sure to configure Honeypot to your needs!
     </primary-label>
 
-    <primary-label id="dependency-required" name="Dependency Required" short-name="DR" color="blue">This feature is fully dependent
+    <primary-label id="dependency-required" name="Dependency Required" short-name="DR" color="blue">This feature is
+        fully dependent
         on a 3rd party plugin. Without that plugin, this feature won't work. Review the Wiki for further details.
     </primary-label>
 
@@ -23,6 +24,10 @@
         plugin dependencies for some or all parts of its functionality. Please be sure to closely consult the Wiki to
         ensure these dependencies are met. Without these other plugins, utilizing these features may cause Honeypot to
         silently fail or exhibit unexpected behavior.
+    </secondary-label>
+
+    <secondary-label id="advanced" name="Advanced Feature" color="red">This feature is for advanced users who have
+        knowledge of software development. Improper use of these features could damage your server or worse.
     </secondary-label>
 
 </labels>

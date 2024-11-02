@@ -18,4 +18,13 @@
         general.
     </tip>
 
+    <seealso>
+        <category ref="integrations">
+            <a href="PlaceholderAPI.topic" />
+            <a href="WorldGuard.topic"/>
+            <a href="GriefPrevention.topic"/>
+            <a href="Lands.topic"/>
+        </category>
+    </seealso>
+
 </topic>

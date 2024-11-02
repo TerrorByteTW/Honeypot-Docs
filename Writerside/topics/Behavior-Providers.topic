@@ -7,6 +7,48 @@
     <title>
         Behavior Providers
     </title>
-    <p>Start typing here...</p>
+    <secondary-label ref="advanced"/>
+
+    <chapter id="technical-information" title="Technical Information">
+
+        <p>In Honeypot, a <code>Behavior</code> is a custom action type that is registered via a plugin rather than
+            defined as a <a href="Custom-Honeypot-Config.topic">Custom Honeypots Action</a>. A behavior allows
+            developers to programmatically process a Honeypot instead of just running basic server commands. Behavior
+            providers can be as complex or simple as you make them. The native actions in Honeypot are actually behavior
+            providers, as well!
+        </p>
+
+        <p>When the server loads, Honeypot allows registration of Behavior Providers via its <code>onLoad()</code>
+            method. Once loaded, Honeypot stores all of those providers in its internal registry. Behavior providers
+            take precedence over Custom Honeypot Actions</p>
+    </chapter>
+
+    <chapter id="creating-a-behavior" title="Creating a Behavior Provider">
+        <p>Creating a behavior provider is just as simple as the storage provider. Create a class that extends <code>BehaviorProvider</code>
+            and annotate it with the <code>@Behavior</code> annotation. This annotation requires a <code>type</code>,
+            <code>name</code>, and <code>icon</code>. Currently, <code>type</code> is unused, but be sure to label it
+            properly as there are plans to utilize it in the near future.</p>
+
+        <code-block lang="java" src="DemoBehavior.java" disable-links="false"/>
+
+        <p>The example above spawn 50 chickens over 2.5 seconds, then after another 10 seconds it kills them all and
+            plays a really loud Enderman death sound. That's the kind of customization you can get with Behavior
+            Providers!</p>
+
+        <p>Once you have your provider created, you can register it the same
+            way you did your Storage Provider in your
+            <code>onLoad()</code> method</p>
+
+        <code-block lang="java" src="demoBehaviorProvider.java" disable-links="false"/>
+    </chapter>
+
+    <seealso>
+        <category ref="api-reference">
+            <a href="Adding-Functionality.topic"/>
+            <a href="Events.topic"/>
+            <a href="Storage-Providers.topic"/>
+            <a href="https://github.com/TerrorByteTW/HoneypotAPI-Test-Plugin">Demo Plugin</a>
+        </category>
+    </seealso>
 
 </topic>

@@ -4,4 +4,6 @@
 <categories>
     <category id="wrs" name="Writerside documentation" order="1"/>
     <category id="references" name="References" order="2"/>
+    <category id="integrations" name="Integrations" order="3"/>
+    <category id="api-reference" name="API Reference" order="4"/>
 </categories>
