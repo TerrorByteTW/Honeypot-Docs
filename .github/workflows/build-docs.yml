@@ -50,6 +50,8 @@ jobs:
           instance: ${{ env.INSTANCE }}
   deploy:
     permissions:
+      contents: read
+      pages: write
       id-token: write
     environment:
       name: github-pages
