@@ -49,6 +49,8 @@ jobs:
         with:
           instance: ${{ env.INSTANCE }}
   deploy:
+    permissions:
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
