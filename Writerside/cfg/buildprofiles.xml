@@ -16,12 +16,10 @@
     </build-profile>
 
     <footer>
-        <copyright>2024 Nate Reprogle a.k.a. TerrorByte</copyright>
+        <copyright>2026 Nate Reprogle a.k.a. TerrorByte</copyright>
         <link href="https://discord.com/invite/DpcdgTbPnU">Discord</link>
         <link href="https://github.com/TerrorByteTW/Honeypot">Source Code (GitHub)</link>
         <link href="https://modrinth.com/plugin/honeypot">Modrinth</link>
-        <link href="https://polymart.org/resource/honeypot-anti-grief.2756">Polymart</link>
-        <link href="https://builtbybit.com/resources/honeypot-anti-grief.24799/">BuiltByBit</link>
-        <link href="https://www.spigotmc.org/resources/honeypot-anti-grief.96665/">Spigot</link>
+        <link href="https://hangar.papermc.io/TerrorByte/Honeypot">Hangar</link>
     </footer>
 </buildprofiles>

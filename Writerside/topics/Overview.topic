@@ -27,7 +27,9 @@
             API
             and publishing events that can be listened to for some other purpose.</p>
         <warning>
-            Honeypots in computing are not intended to _prevent_ malicious actions from occurring. In fact, one could
+            Honeypots in computing are not intended to
+            <emphasis>prevent</emphasis>
+            malicious actions from occurring. In fact, one could
             argue that
             having a Honeypot means you expect and welcome those attacks as a way of learning about threats and
             preventing them.
@@ -46,33 +48,27 @@
                 <control>👀 Privacy focused.</control>
                 We don't want your data! Most plugins are open source, but those that aren't are difficult to
                 review, meaning you can't check what they're doing! This plugin only collects basic statistics using
-                bStats and
-                nothing more. bStats is a trusted analytics system, and is used everywhere. It's even embedded in Paper
-                and the
-                Velocity proxy. If you want to know more about this in layman's terms, I'm happy to share! You can view
-                all
-                stats <a href="https://bstats.org/plugin/bukkit/Honeypot/15425">here</a>.
+                bStats and nothing more. bStats is a trusted analytics system and is used everywhere. It's even embedded
+                in Paper and the Velocity proxy. If you want to know more about this in layman's terms, I'm happy to
+                share! You can view all stats <a href="https://bstats.org/plugin/bukkit/Honeypot/15425">here</a>.
             </li>
             <li>
                 <control>💪 Lightweight.</control>
-                Honeypot is feature packed, but still manages to be lightweight. It's extremely quick to process
+                Honeypot is feature-packed but still manages to be lightweight. It's extremely quick to process
                 events, preventing unnecessary lag while protecting your server at the same time. Is Honeypot
                 <emphasis>too</emphasis>
-                lightweight for
-                you? Lucky you! There are plenty of extra events packed into Honeypot that can be enabled with the flip
-                of a config
-                switch! These events may cause Honeypot to consume more resources, but help protect your server against
-                even the
-                strangest events.
+                lightweight for you? Lucky you! There are plenty of extra events packed into Honeypot that can be
+                enabled with the flip
+                of a config switch! These events may cause Honeypot to consume more resources but help protect your
+                server against even the strangest events.
             </li>
             <li>
                 <control>😄 Easy to update.</control>
-                Honeypot does its work using simple, well known and documented Paper APIs or well-known
+                Honeypot does its work using simple, well-known and documented Paper APIs or well-known
                 libraries, avoiding complex systems such as NMS (At least, within its own codebase). This makes it easy
                 to understand
                 and update if/when breaking changes occur. If Honeypot does use complex systems like NMS, it does so
-                with well known
-                and well maintained libraries such as ProtocolLib.
+                with well-known and well-maintained libraries such as ProtocolLib.
             </li>
             <li>
                 <control>🔨 Easy to build upon.</control>
@@ -103,7 +99,7 @@
         <p>Installing Honeypot is simple. Just download it from one of the many locations it's available (The footer
             contains
             all of those), then drop it in your server's Plugins folder.</p>
-        <p>On first boot Honeypot will generate all the configuration and database files needed to function. Changes to
+        <p>On the first boot Honeypot will generate all the configuration and database files needed to function. Changes to
             the
             configuration files can be applied by using <code>/honeypot reload</code> in-game.</p>
         <note>
@@ -121,21 +117,18 @@
             A) Honeypot tries to be as efficient as possible. It caches Honeypots in memory to prevent costly database
             queries,
             it does its best to stop processing an event or events as early as it can, and has many other features to
-            help with speed. More recently, Honeypot supports the Spigot PDC API, which removes the dependency on SQLite
-            for storing block data (Player and Player History are still stored in the DB, but they are
-            <emphasis>way</emphasis>
-            more performant when
-            queried). As of v3.4.0, Honeypot's internal DB uses <code>R*Tree</code>,
+            help with speed. Honeypot's internal DB uses <code>R*Tree</code>,
             which <a href="https://github.com/TerrorByteTW/Honeypot/issues/187">increased performance by 97% in
-                testing</a> ! It shouldn't
-            cause too much lag on your server, however I'm always optimizing. If you have an issue with the plugin or a
-            suggestion
-            on how to improve it, please let me know!
+                testing</a> compared to previous DB architectures! As well, Honeypot is built on <a
+                    href="https://terrorbytetw.github.io/ByteLib/welcome-to-bytelib.html">ByteLib</a>, a custom
+            Paper-native plugin development framework. ByteLib's SQLite API caches queries by default, so blocks that
+            are queried frequently won't cause any lag on your server. I'm always optimizing Honeypot, so if you have an
+            issue with the plugin or a suggestion on how to improve it, please let me know!
         </p>
         <p>Q) Is Honeypot secure?<br/>
             A) I've taken all precautionary steps to ensure Honeypot is secure and doesn't provide any security
             vulnerabilities to
-            your server. Honeypot is obviously a Spigot plugin so it is only as secure as Spigot. It doesn't store any
+            your server. As Honeypot is a Paper plugin, it is only as secure as Paper. It doesn't store any
             personal
             information about players or servers, and only collects anonymous statistics
             via <a href="https://bstats.org/plugin/bukkit/Honeypot/15425">bStats</a>. The plugin is open source for peer
@@ -147,18 +140,17 @@
             A) When you mark a block as a Honeypot, its location and
             <tooltip term="action">action</tooltip>
             is stored in the
-            storage mechanism of choice (By default this is SQLite, but PDC is also natively supported. Other storage
-            providers can
-            be programmatically added). Honeypot listens to up to 17 different events, such as Block Break, Block Burn,
-            Entity
-            Explode (Such as TnT), and many more. These event
+            storage mechanism of choice (By default, this is SQLite, but other storage
+            providers can be programmatically added). Honeypot listens to up to 17 different events, such as Block
+            Break, Block Burn,
+            Entity Explode (Such as TnT), and many more. These event
             <tooltip term="listener">listeners</tooltip>
             contain logic to determine whether the event was on a
             Honeypot block and, if so, who caused the event and what action should be taken. Then, when a player
             interacts with that
             Honeypot, the action is retrieved, the plugin looks up the code for how the action should be processed, and
-            finally the
-            action is ran against the player. That's the simple definition, there's a lot more to it, of course 😉
+            finally, the
+            action is run against the player. That's the simple definition; there's a lot more to it, of course 😉
         </p>
     </chapter>
 

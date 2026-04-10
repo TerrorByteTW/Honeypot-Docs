@@ -1,11 +1,3 @@
-package me.terrorbyte.test;
-
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
-import org.bukkit.plugin.java.JavaPlugin;
-
-import [[[org.reprogle.honeypot.api.events.HoneypotPrePlayerBreakEvent|https://javadoc.jitpack.io/com/github/TerrorByteTW/Honeypot/honeypot-api/3.4.0/javadoc/org/reprogle/honeypot/api/events/HoneypotPrePlayerBreakEvent.html]]];
-
 public class Test extends JavaPlugin implements Listener {
 
     public Test plugin;
@@ -23,7 +15,7 @@ public class Test extends JavaPlugin implements Listener {
     }
 
     @EventHandler
-    public static void onHoneypotPrePlayerBreakEvent([[[HoneypotPrePlayerBreakEvent|https://javadoc.jitpack.io/com/github/TerrorByteTW/Honeypot/honeypot-api/3.4.0/javadoc/org/reprogle/honeypot/api/events/HoneypotPrePlayerBreakEvent.html]]] event) {
+    public static void onHoneypotPrePlayerBreakEvent(HoneypotPrePlayerBreakEvent event) {
             event.getPlayer().sendMessage("You threw the event!");
 }
 }

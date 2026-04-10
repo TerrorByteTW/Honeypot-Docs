@@ -7,6 +7,9 @@
     <title>
         Configuration
     </title>
+    <tip>These configurations may not be up-to-date as configuration changes frequently. For the latest configuration
+        settings, reference the files in the GitHub repo (Link in the footer)
+    </tip>
     <p>Honeypot contains three different configuration files and, as of writing, five different language translation
         files.
         These are</p>

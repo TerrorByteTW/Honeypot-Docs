@@ -12,19 +12,17 @@
     <secondary-label ref="advanced"/>
 
     <chapter id="technical-info" title="Technical Information">
-        <p>Storage Providers are a brand-new feature in Honeypot 3.4.0 that allows developers to create different
-            methods of
+        <p>Storage Providers allow developers to create different methods of
             storing Honeypot blocks should the built-in methods not be enough for their specific use case.</p>
 
-        <p>Honeypot has two native storage methods: PDC and SQLite. SQLite is always used for storing player
+        <p>Honeypot only contains one native storage method: SQLite. SQLite is always used for storing player
             and player history information. However, Block data, the location and action of a Honeypot, is queried much
             more frequently. It is necessary to have different methods of storage allows server managers to pick what is
-            best for them</p>
+            best for them.</p>
 
         <p>The SQLite DB has been architected to use an <a href="https://en.wikipedia.org/wiki/R*-tree">R*-Tree</a> data
             structure, a variant of an <a href="https://en.wikipedia.org/wiki/R-tree">R-Tree</a> data structure but with
-            better query performance. PDC uses custom formatted key and value strings and stores all keys within the
-            <code>world</code> container. In testing, these methods allowed Honeypot to search a
+            better query performance. In testing, Honeypot's DB architecture allowed it to search a
             2,000,000<!--suppress WrsMissingSpaceChecker --><sup>3</sup> block area
             within milliseconds.</p>
 

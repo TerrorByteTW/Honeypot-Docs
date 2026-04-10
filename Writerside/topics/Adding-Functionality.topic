@@ -11,8 +11,8 @@
         <p>There may be situations in which even custom actions aren't enough to meet the needs of your server.</p>
 
         <p>Honeypot provides a simple but powerful API which allows you to extend its functionality. Currently, you can
-            listen to <a href="Events.topic"/>, add <a href="Behavior-Providers.topic">custom behaviors</a>, and add
-            custom <a href="Storage-Providers.topic">block storage solutions</a> should PDC and SQLite not fit your use
+            listen to <a href="Events.topic"/>, add <a href="Behavior-Providers.topic">custom behaviors</a> and add
+            custom <a href="Storage-Providers.topic">block storage solutions</a> should SQLite not fit your use
             case. See the sidebar for the various features and functions Honeypot exposes</p>
 
         <p>Honeypot's JavaDocs are automatically published via JitPack. You can view the docs for the latest version <a
@@ -44,7 +44,7 @@
             ]]></code-block>
             <code-block lang="xml"><![CDATA[
                 <dependency>
-                    <groupId>org.reprogle.Honeypot</groupId>
+                    <groupId>com.github.TerrorByteTW.Honeypot</groupId>
                     <artifactId>honeypot-api</artifactId>
                     <version>API_VERSION</version>
                     <scope>provided</scope>

@@ -42,6 +42,17 @@
         <code-block lang="java" src="demoBehaviorProvider.java" disable-links="false"/>
     </chapter>
 
+    <chapter id="configurable-providers" title="Configurable Providers">
+        <p>Honeypot allows providers to create their own configuration files within Honeypot's own data folder. These
+            are provided to your plugin's <code>process()</code> method. If your Behavior is not marked configurable in
+            the annotation, a configuration file will not be generated and the config argument will be null.</p>
+        <p>At the current time, Honeypot unfortunately cannot generate default configurations. Developers should be
+            mindful of providing default values for their configurations.</p>
+        <p>The configuration object provided is from the BoostedYAML library. You can <a
+                href="https://dejvokep.gitbook.io/boostedyaml/getting-started/content-manipulation">learn more here.</a>
+        </p>
+    </chapter>
+
     <seealso>
         <category ref="api-reference">
             <a href="Adding-Functionality.topic"/>

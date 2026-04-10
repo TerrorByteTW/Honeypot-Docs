@@ -1,18 +1,5 @@
-package me.terrorbyte.test;
-
-import org.bukkit.Location;
-import org.bukkit.World;
-import org.bukkit.block.Block;
-import org.jetbrains.annotations.Nullable;
-import [[[org.reprogle.honeypot.common.storageproviders.HoneypotBlockObject|https://javadoc.jitpack.io/com/github/TerrorByteTW/Honeypot/honeypot-api/3.4.0/javadoc/org/reprogle/honeypot/common/storageproviders/HoneypotBlockObject.html]]];
-import [[[org.reprogle.honeypot.common.storageproviders.HoneypotStore|https://javadoc.jitpack.io/com/github/TerrorByteTW/Honeypot/honeypot-api/3.4.0/javadoc/org/reprogle/honeypot/common/storageproviders/HoneypotStore.html]]];
-import [[[org.reprogle.honeypot.common.storageproviders.StorageProvider|https://javadoc.jitpack.io/com/github/TerrorByteTW/Honeypot/honeypot-api/3.4.0/javadoc/org/reprogle/honeypot/common/storageproviders/StorageProvider.html]]];
-
-import java.util.List;
-import java.util.logging.Logger;
-
 @HoneypotStore(name = "DemoHoneypotStore")
-public class DemoHoneypotStore extends [[[StorageProvider|https://javadoc.jitpack.io/com/github/TerrorByteTW/Honeypot/honeypot-api/3.4.0/javadoc/org/reprogle/honeypot/common/storageproviders/StorageProvider.html]]] {
+public class DemoHoneypotStore extends StorageProvider {
     @Override
     public void createHoneypotBlock(Block block, String s) {
         Logger.getLogger("minecraft").info("Create honeypot block was called!");

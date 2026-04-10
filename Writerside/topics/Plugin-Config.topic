@@ -7,33 +7,23 @@
     <title>
         Plugin Config
     </title>
-    <show-structure depth="2" />
+    <show-structure depth="2"/>
     <primary-label ref="configuration"/>
     <p>The <code>config.yml</code> file is responsible for all the core configuration in the plugin.
         <resource src="config.yml">You can download a sample config.yml file here.</resource>
     </p>
 
-    <chapter title="Database Settings" id="database-settings">
-        <p>Database settings relate to the config. In early versions of Honeypot it actually did correlate to DB
-            settings, but now it's just there. It could be renamed, but for now know it doesn't actually mean
-            database</p>
-
+    <chapter title="Uncategorized Settings" id="uncategorized-settings">
         <chapter title="file-version" id="file-version">
             <p>A number used internally to identify the version of the config file.
                 This number is used to handle file updates and other things. Do not modify it, otherwise you risk your
                 config being damaged</p>
             <code-block lang="yaml">file-version: 24</code-block>
         </chapter>
-        <chapter title="cache-size" id="cache-size">
-            <p>The number of Honeypot objects that Honeypot will store in memory. This can increase the speed of
-                Honeypot at the expense of a minimal increase in memory usage (Think bytes, not megabytes). Set to
-                &lt;= 0 to disable</p>
-            <code-block lang="yaml">cache-size: 20</code-block>
-        </chapter>
     </chapter>
 
     <chapter title="Plugin Settings" id="plugin-settings">
-        <p>Plugin settings relate to the core plugin functionality. This is where you'll determine how Honeypot
+        <p>Plugin settings are for to the core plugin functionality. This is where you'll determine how Honeypot
             functions</p>
 
         <chapter title="enable-extra-events" id="enable-extra-events">
@@ -124,6 +114,13 @@
             <p>Enables all INFO, WARN, and SEVERE logs from Honeypot to be logged to disk, as well as more detailed
                 DEBUG logs that aren't put in console</p>
             <code-block lang="yaml">enable-logging: false</code-block>
+        </chapter>
+
+        <chapter title="silence-noisy-logs" id="silence-noisy-logs">
+            <p>Silences more noisy log messages, such as events from non-player triggered actions (Pistons, leaf decay,
+                etc.) or log messages that occur frequently. This only affects DEBUG log messages; INFO, WARNING, etc.
+                are not affected.</p>
+            <code-block lang="yaml">silence-noisy-logs: false</code-block>
         </chapter>
 
         <chapter title="discord.enable" id="discord.enable">
@@ -240,7 +237,7 @@
         <chapter title="storage-method" id="storage-method">
             <p>Allows server admins to select the best method of storing Honeypot block data, specifically. Honeypot
                 Player and Player History data is stored in SQLite regardless. However, block data, which is queried
-                extremely often, can benefit from different storage methods such as PDC. There are two options</p>
+                extremely often, will use whatever storage method is configured. There is currently only one option</p>
             <table>
                 <tr>
                     <td>Type</td>
@@ -253,24 +250,14 @@
                         Honeypot has made this difference negligible, but it's still something to note
                     </td>
                 </tr>
-                <tr>
-                    <td><code>pdc</code></td>
-                    <td>Stores Honeypot data using the PDC (Persistent Data Container) API. Honeypot data is stored as
-                        key-value pairs in the "world" PDC. This also means that Honeypot data is dependent on the
-                        level.dat, and could theoretically be damaged by tools such as Amulet.
-                    </td>
-                </tr>
             </table>
             <code-block lang="yaml">storage-method: sqlite</code-block>
         </chapter>
+    </chapter>
 
-        <chapter title="allow-third-party-storage-managers" id="allow-third-party-storage-managers">
-            <p>Honeypot allows for third party storage implementations to be programmatically added. This allows
-                developers to add support for other systems like MySQL, H2, PostgreSQL, JSON, etc. As a security
-                measure, this setting is in place to ensure that a third-party implementation doesn't get loaded without
-                consent</p>
-            <code-block lang="yaml">allow-third-party-storage-managers: false</code-block>
-        </chapter>
+    <chapter title="Database Settings" id="database-settings">
+        <p>Database Settings should not be touched unless you know what you're doing. They're loosely based on ByteLib's SQLite configuration settings.</p>
+        <a href="https://terrorbytetw.github.io/ByteLib/configuring-sqlite-api.html">See this link for details.</a>
     </chapter>
 
     <chapter title="Credits" id="credits">

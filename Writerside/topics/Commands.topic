@@ -62,11 +62,6 @@
                 <td>honeypot.history</td>
                 <td>Allows looking up a players honeypot history</td>
             </tr>
-            <tr>
-                <td>/honeypot migrate</td>
-                <td>honeypot.migrate</td>
-                <td>Migrates a server from SQLite to PDC if they chose to use that new experimental storage method</td>
-            </tr>
         </table>
     </chapter>
     <chapter title="Other Permissions" id="other-permissions">
