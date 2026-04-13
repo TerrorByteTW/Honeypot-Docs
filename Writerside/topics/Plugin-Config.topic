@@ -231,8 +231,8 @@
 
     <chapter title="Experimental Settings" id="experimental-settings">
         <secondary-label ref="experimental"/>
-        <p>Experimental settings are settings that exist within Honeypot that add or enable new features, but can be
-            potentially unstable or cause issues. Over time as these features are developed, they will be considered
+        <p>Experimental settings are settings that exist within Honeypot that add or enable new features but can be
+            potentially unstable or cause issues. Over time, as these features are developed, they will be considered
             stable and moved into the proper category</p>
         <chapter title="storage-method" id="storage-method">
             <p>Allows server admins to select the best method of storing Honeypot data. There is currently only one
