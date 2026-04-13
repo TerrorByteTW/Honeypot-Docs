@@ -15,16 +15,15 @@
         <p>Storage Providers allow developers to create different methods of
             storing Honeypot blocks should the built-in methods not be enough for their specific use case.</p>
 
-        <p>Honeypot only contains one native storage method: SQLite. SQLite is always used for storing player
-            and player history information. However, Block data, the location and action of a Honeypot, is queried much
-            more frequently. It is necessary to have different methods of storage allows server managers to pick what is
-            best for them.</p>
+        <p>Honeypot only contains one native storage method: SQLite. Player information, player history,
+            and Block Data (the location and action of Honeypot) are stored within the default SQLite store.
+            It is necessary to have different methods of storage allows server managers to pick what is best for them.</p>
 
-        <p>The SQLite DB has been architected to use an <a href="https://en.wikipedia.org/wiki/R*-tree">R*-Tree</a> data
+        <p>The built-in SQLite Store has been architected to use an <a href="https://en.wikipedia.org/wiki/R*-tree">R*-Tree</a> data
             structure, a variant of an <a href="https://en.wikipedia.org/wiki/R-tree">R-Tree</a> data structure but with
             better query performance. In testing, Honeypot's DB architecture allowed it to search a
             2,000,000<!--suppress WrsMissingSpaceChecker --><sup>3</sup> block area
-            within milliseconds.</p>
+            within milliseconds (That's 8E18, or eight quintillion blocks).</p>
 
         <p>Because Honeypot can achieve such extreme query times without nearly any overhead, it's recommended that you
             stick with the native Honeypot storage methods unless you know you absolutely need something else.</p>
@@ -51,8 +50,7 @@
         <p>Honeypot will allow registrations of storage providers only on load, so you cannot reload Honeypot using
             <code>/reload</code> or a plugin like PlugManX. In order to use the behavior provider that was added, see
             <a href="Plugin-Config.topic" anchor="experimental-settings">Configuring Honeypot</a>. You must update
-            the name of the storage method to what you set in the <code>@HoneypotStore</code> annotation, and you must
-            enable the third party storage manager flag.
+            the name of the storage method to what you set in the <code>@HoneypotStore</code> annotation.
         </p>
 
         <note>

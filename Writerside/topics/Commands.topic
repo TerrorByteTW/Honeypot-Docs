@@ -9,8 +9,14 @@
     </title>
     <p>Honeypot contains a variety of commands &amp; permissions. Reference the chart below for those commands</p>
     <chapter title="Main Commands" id="main-commands">
-        <p>Staff will require the <code>honeypot.commands</code> permission to use any commands, including <code>/honeypot
-            help</code>.</p>
+        <p>Honeypot uses the PaperMC Brigadier Command API, not the legacy Bukkit Command API. Players who
+            do not have permission to a command will not see the command
+            <emphasis>at all</emphasis>
+            in their autocomplete list. Attempting to execute it will show the standard "Command not found"
+            Minecraft error instead of telling them they have no permissions.
+        </p>
+        <p>If staff do not see any Honeypot commands whatsoever, be sure that they have <code>honeypot.commands</code>
+            (See below).</p>
         <table>
             <tr>
                 <td>Command</td>
@@ -19,8 +25,8 @@
             </tr>
             <tr>
                 <td>/honeypot</td>
-                <td>honeypot.gui</td>
-                <td>Alias for <code>/honeypot gui</code></td>
+                <td>honeypot.help</td>
+                <td>Alias for <code>/honeypot help</code></td>
             </tr>
             <tr>
                 <td>/honeypot create &lt;type&gt;</td>
@@ -60,7 +66,16 @@
             <tr>
                 <td>/honeypot history</td>
                 <td>honeypot.history</td>
-                <td>Allows looking up a players honeypot history</td>
+                <td>Allows looking up a players' honeypot history</td>
+            </tr>
+            <tr>
+                <td>/honeypot info</td>
+                <!--suppress CheckTagEmptyBody -->
+                <td></td>
+                <td>Tells the player which version of Honeypot they're running and which version of Minecraft they're
+                    on. The developer will ask for this info when debugging problem reports, but this command can be
+                    otherwise ignored.
+                </td>
             </tr>
         </table>
     </chapter>
@@ -75,6 +90,10 @@
                 <td>Gives access to all Honeypot commands and permissions</td>
             </tr>
             <tr>
+                <td>honeypot.commands</td>
+                <td>Necessary to execute any Honeypot command.</td>
+            </tr>
+            <tr>
                 <td>honeypot.break</td>
                 <td>Allows players to break Honeypots, regardless of config values.<br/> They still cannot use <code>/honeypot
                     remove</code></td>
@@ -85,7 +104,13 @@
             </tr>
             <tr>
                 <td>honeypot.exempt</td>
-                <td>Players with this permission will not be affected by Honeypots</td>
+                <td>Honeypots will not affect players with this permission</td>
+            </tr>
+            <tr>
+                <td>honeypot.update</td>
+                <td>Players with this permission will not be alerted of available updates to Honeypots upon joining the
+                    server.
+                </td>
             </tr>
         </table>
     </chapter>

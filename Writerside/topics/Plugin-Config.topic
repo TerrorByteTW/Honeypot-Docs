@@ -205,9 +205,9 @@
 
         <chapter title="allowed-inventories" id="allowed-inventories">
             <p>A list of inventories in <a
-                    href="https://jd.papermc.io/paper/1.21.1/org/bukkit/Material.html">MATERIAL</a> format that Honeypot
+                    href="https://jd.papermc.io/paper/26.1.2/org/bukkit/Material.html">MATERIAL</a> format that Honeypot
                 will allow actions to be triggered on when interacted with or modified. The inventory filter does not
-                apply to block breaks, so you can still create Honeypots on disallowed inventories and only the
+                apply to block breaks, so you can still create Honeypots on disallowed inventories, and only the
                 inventory click will be filtered, the breaking of the block will still be allowed unless otherwise
                 stated in the <code>allowed-blocks</code> list</p>
             <code-block lang="yaml">
@@ -219,7 +219,7 @@
 
         <chapter title="allowed-blocks" id="allowed-blocks">
             <p>A list of blocks in <a
-                    href="https://jd.papermc.io/paper/1.21.1/org/bukkit/Material.html">MATERIAL</a> format that
+                    href="https://jd.papermc.io/paper/26.1.2/org/bukkit/Material.html">MATERIAL</a> format that
                 Honeypot's can be created on. If block filtering is enabled, and you try to create a Honeypot using a
                 block not in the list, it will be disallowed</p>
             <code-block lang="yaml">
@@ -245,9 +245,9 @@
                 </tr>
                 <tr>
                     <td><code>sqlite</code></td>
-                    <td>Stores block data in the <code>honeypot.db</code> file. A "safer" method of storage, however
-                        because it requires disk access it can take slightly longer to query. Recent improvements to
-                        Honeypot has made this difference negligible, but it's still something to note
+                    <td>Stores block data in the <code>honeypot.db</code> file. This file is critical to the operation
+                        of Honeypot and should never be manually modified unless explicitly told to by the developer
+                        under rare circumstances.
                     </td>
                 </tr>
             </table>
@@ -256,7 +256,8 @@
     </chapter>
 
     <chapter title="Database Settings" id="database-settings">
-        <p>Database Settings should not be touched unless you know what you're doing. They're loosely based on ByteLib's SQLite configuration settings.</p>
+        <p>Database Settings should not be touched unless you know what you're doing. They're loosely based on ByteLib's
+            SQLite configuration settings.</p>
         <a href="https://terrorbytetw.github.io/ByteLib/configuring-sqlite-api.html">See this link for details.</a>
     </chapter>
 

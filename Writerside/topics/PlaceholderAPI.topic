@@ -9,10 +9,9 @@
     </title>
     <primary-label ref="dependency-required"/>
     <chapter title="Placeholders" id="placeholders">
-        <p>Honeypot, as of 3.1.0, now supports Placeholders and even provides three as well. If you want to use custom
+        <p>Honeypot supports Placeholders and even provides three as well. If you want to use custom
             placeholders, you may do so by adding them to your honeypots.yml file. As for the placeholders that Honeypot
-            <emphasis>provides</emphasis>
-            ,
+            <emphasis>provides,</emphasis>
             those are:
         </p>
         <list>

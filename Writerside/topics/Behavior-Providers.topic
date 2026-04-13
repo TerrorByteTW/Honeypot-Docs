@@ -27,13 +27,9 @@
         <p>Creating a behavior provider is just as simple as the storage provider. Create a class that extends <code>BehaviorProvider</code>
             and annotate it with the <code>@Behavior</code> annotation. This annotation requires a <code>type</code>,
             <code>name</code>, and <code>icon</code>. Currently, <code>type</code> is unused, but be sure to label it
-            properly as there are plans to utilize it in the near future.</p>
+            properly as it may be used in the future.</p>
 
         <code-block lang="java" src="DemoBehavior.java" disable-links="false"/>
-
-        <p>The example above spawn 50 chickens over 2.5 seconds, then after another 10 seconds it kills them all and
-            plays a really loud Enderman death sound. That's the kind of customization you can get with Behavior
-            Providers!</p>
 
         <p>Once you have your provider created, you can register it the same
             way you did your Storage Provider in your
