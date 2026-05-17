@@ -7,19 +7,23 @@
     <title>
         Storage Providers
     </title>
-    <primary-label ref="new"/>
-    <secondary-label ref="experimental"/>
     <secondary-label ref="advanced"/>
 
     <chapter id="technical-info" title="Technical Information">
         <p>Storage Providers allow developers to create different methods of
             storing Honeypot blocks should the built-in methods not be enough for their specific use case.</p>
 
-        <p>Honeypot only contains one native storage method: SQLite. Player information, player history,
-            and Block Data (the location and action of Honeypot) are stored within the default SQLite store.
-            It is necessary to have different methods of storage allows server managers to pick what is best for them.</p>
+        <p>There are three different types of Storage Provider in Honeypot: <code>REGION</code>, <code>PLAYER</code>,
+            and <code>PLAYER_HISTORY</code>. Developers can create Storage Providers for as many or as few types as they
+            wish, and one provider can support more than one type if desired.</p>
 
-        <p>The built-in SQLite Store has been architected to use an <a href="https://en.wikipedia.org/wiki/R*-tree">R*-Tree</a> data
+        <p>Honeypot only contains one native storage method for each type. Player information, player history,
+            and Block Data (the location and action of Honeypot) are stored within the default SQLite stores.
+            It is necessary to have different methods of storage allows server managers to pick what is best for
+            them.</p>
+
+        <p>The built-in SQLite Store has been architected to use an <a href="https://en.wikipedia.org/wiki/R*-tree">R*-Tree</a>
+            data
             structure, a variant of an <a href="https://en.wikipedia.org/wiki/R-tree">R-Tree</a> data structure but with
             better query performance. In testing, Honeypot's DB architecture allowed it to search a
             2,000,000<!--suppress WrsMissingSpaceChecker --><sup>3</sup> block area
@@ -35,20 +39,37 @@
         </warning>
     </chapter>
 
-    <chapter title="Using Storage Providers" id="using-storage-providers">
-        <p>To use a storage provider, you must first create the provider by extending StorageProvider from the Honeypot
-            API. You must also annotate the class with <code>@HoneypotStore</code>. The annotation requires a
-            <code>name</code> property, which is case-insensitive and must be unique. The below class is just a logging
-            class for testing a store. You are responsible for the actual storage logic</p>
+    <chapter title="Creating and Registering Storage Providers" id="creating-registering-storage-providers">
+        <p>To create a Storage Provider for one or more Store types, create a class and annotate it with the <code>@HoneypotStore</code>
+            annotation. This annotation requires two arguments.</p>
+        <deflist>
+            <def title="name" id="name-def">
+                <p>The name of the storage provider. This must be unique across all storage providers <i>regardless of
+                    type</i>. For example, no two <code>REGION</code> may be called "mysql", even if one is a <code>REGION</code>
+                    Store and the other is a <code>PLAYER</code> store.</p>
+            </def>
+            <def title="type" id="type-def">
+                <p>The type or types this store supports. Can be a single item or a list of multiple</p>
+                <code-block lang="java" src="DemoHoneypotStore.java"/>
+            </def>
+        </deflist>
 
-        <code-block lang="java" src="DemoHoneypotStore.java" disable-links="false"/>
+        <p>Notice that a Honeypot Store must implement the correct Interface for the type. Each type has a dedicated
+            interface, and you
+            <emphasis>must</emphasis>
+            implement it.
+        </p>
+        <tip>Honeypot includes an annotation processor to assist with defining stores properly. It will fail your builds
+            if you do not define a Store properly, so it's useful to ensure you've correctly implemented everything. To
+            use it, <a
+                    href="https://github.com/TerrorByteTW/Honeypot/tree/master/api">check out this link.</a></tip>
 
         <p>Once the storage provider is complete, you must register it in your <code>onLoad()</code> method.</p>
 
-        <code-block lang="java" src="demoStorageProvider.java" disable-links="false"/>
+        <code-block lang="java" src="demoStorageProvider.java"/>
 
-        <p>Honeypot will allow registrations of storage providers only on load, so you cannot reload Honeypot using
-            <code>/reload</code> or a plugin like PlugManX. In order to use the behavior provider that was added, see
+        <p>Honeypot will allow registrations of storage providers only at load time, so you cannot reload Honeypot using
+            <code>/reload</code> or a plugin like PlugManX. To use the Storage Provider that was added, see
             <a href="Plugin-Config.topic" anchor="experimental-settings">Configuring Honeypot</a>. You must update
             the name of the storage method to what you set in the <code>@HoneypotStore</code> annotation.
         </p>
@@ -57,6 +78,47 @@
             Believe it or not, unlike Behavior Providers, Storage Providers <i>can</i> be changed during server runtime
             with <code>/honeypot reload</code>. However, new ones cannot be registered, they can only be <i>changed</i>.
         </note>
+    </chapter>
+
+    <chapter title="Using Storage Providers" id="using-storage-providers">
+        <p>The static <code>Registry</code> class provides a lot of functionality for working with Honeypot data without
+            needing
+            to know the inner workings of the storage provider.</p>
+        <p>A getter exists for each Store type to get the currently selected Storage Provider.</p>
+        <deflist>
+            <def id="get-region-store">
+                <title><code>Registry#getRegionStore()</code></title>
+                <p>Gets the currently loaded Storage Provider for <code>REGION</code> data.</p>
+            </def>
+            <def id="get-player-store">
+                <title><code>Registry#getPlayerStore()</code></title>
+                <p>Gets the currently loaded Storage Provider for <code>PLAYER</code> data.</p>
+            </def>
+            <def id="get-player-history-store">
+                <title><code>Registry#getPlayerHistoryStore()</code></title>
+                <p>Gets the currently loaded Storage Provider for <code>PLAYER_HISTORY</code> data.</p>
+            </def>
+        </deflist>
+
+        <p>If you need to be able to get a Store Provider by name and/or type, you may do so using the methods on the
+            <code>StoreRegistry</code>.</p>
+        <code-block lang="java"><![CDATA[
+            // Get the currently selected Storage Manager Registry
+            // Honeypot supports custom registries, but it is not documented in the Wiki. Check the JavaDoc to learn more.
+            var registry = Registry.getStorageManagerRegistry();
+
+            // Get a specific Storage Provider without knowing its type
+            // Returns Optional<Object> since the type is unknown
+            var someStore = registry.get("my-store");
+
+            // Get a specific Storage Provider with a known type
+            // Returns Optional<T> since it's not guaranteed to exist
+            var someRegionStore = registry.get("my-region-store", RegionStore.class);
+
+            // Get all Storage Providers of a given type
+            // Returns List<T> as it filters registered Stores instead of attempting to get a specific one
+            var allPlayerStores = registry.getByType(StoreType.PLAYER, PlayerStore.class);
+        ]]></code-block>
     </chapter>
 
     <seealso>

@@ -176,10 +176,9 @@
             follow one of the below methods</p>
 
         <list>
-            <li>Type <code>/honeypot create &lt;action name&gt;</code>. Enabled behavior providers (Including the
-                built-in ones) and custom actions
-                will be displayed in the same list. Action Name will tab-complete based on the names you provided your
-                actions.
+            <li>Type <code>/honeypot create &lt;block | region&gt; &lt;action name&gt;</code>. Enabled behavior
+                providers (Including the built-in ones) and custom actions will be displayed in the same list. Action
+                Name will tab-complete based on the names you provided your actions.
                 <tip>
                     Behavior providers take precedence over custom actions. If a behavior provider and action are both
                     named "blow-up-player" as an example, the Behavior Provider will be what is used.

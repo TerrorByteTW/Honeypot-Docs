@@ -18,7 +18,7 @@
             <p>A number used internally to identify the version of the config file.
                 This number is used to handle file updates and other things. Do not modify it, otherwise you risk your
                 config being damaged</p>
-            <code-block lang="yaml">file-version: 24</code-block>
+            <code-block lang="yaml">file-version: 30</code-block>
         </chapter>
     </chapter>
 
@@ -163,6 +163,11 @@
                 discord:
                     send-when: action</code-block>
         </chapter>
+
+        <chapter title="region-wand" id="region-wand">
+            <p>Determines the Material of the item that acts as the "wand" when creating Honeypot Regions</p>
+            <code-block lang="yaml">region-wand: HONEY_BOTTLE</code-block>
+        </chapter>
     </chapter>
 
     <chapter title="Chat Settings" id="chat-settings">
@@ -236,21 +241,38 @@
             stable and moved into the proper category</p>
         <chapter title="storage-method" id="storage-method">
             <p>Allows server admins to select the best method of storing Honeypot data. There is currently only one
-                option</p>
+                option for each storage type</p>
             <table>
                 <tr>
                     <td>Type</td>
+                    <td>Kind</td>
                     <td>Description</td>
                 </tr>
                 <tr>
-                    <td><code>sqlite</code></td>
-                    <td>Stores block data in the <code>honeypot.db</code> file. This file is critical to the operation
-                        of Honeypot and should never be manually modified unless explicitly told to by the developer
-                        under rare circumstances.
+                    <td><code>sqlite-regions</code></td>
+                    <td><code>StoreType.REGION</code></td>
+                    <td>Stores block data in the <code>honeypot.db</code> file.
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>sqlite-players</code></td>
+                    <td><code>StoreType.PLAYER</code></td>
+                    <td>Stores player data in the <code>honeypot.db</code> file.
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>sqlite-player-history</code></td>
+                    <td><code>StoreType.PLAYER_HISTORY</code></td>
+                    <td>Stores player history data in the <code>honeypot.db</code> file.
                     </td>
                 </tr>
             </table>
-            <code-block lang="yaml">storage-method: sqlite</code-block>
+            <code-block lang="yaml">
+storage-method:
+  regions: "sqlite-regions"
+  players: "sqlite-players"
+  player-history: "sqlite-player-history"
+            </code-block>
         </chapter>
     </chapter>
 

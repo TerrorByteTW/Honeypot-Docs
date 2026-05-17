@@ -1,47 +1,12 @@
-@HoneypotStore(name = "DemoHoneypotStore")
-public class DemoHoneypotStore extends StorageProvider {
-    @Override
-    public void createHoneypotBlock(Block block, String s) {
-        Logger.getLogger("minecraft").info("Create honeypot block was called!");
-    }
+@HoneypotStore(name = "myStoreA", type = StoreType.REGION)
+public class MyStoreA implements RegionStore {
+    // Implementation...
+}
 
-    @Override
-    public void removeHoneypotBlock(Block block) {
-        Logger.getLogger("minecraft").info("Remove honeypot block was called!");
-    }
-
-    @Override
-    public boolean isHoneypotBlock(Block block) {
-        Logger.getLogger("minecraft").info("Is Honeypot block was called!");
-        return false;
-    }
-
-    @Override
-    public HoneypotBlockObject getHoneypotBlock(Block block) {
-        Logger.getLogger("minecraft").info("Get honeypot block was called!");
-        return null;
-    }
-
-    @Override
-    public String getAction(Block block) {
-        Logger.getLogger("minecraft").info("Get action was called!");
-        return "";
-    }
-
-    @Override
-    public void deleteAllHoneypotBlocks(@Nullable World world) {
-        Logger.getLogger("minecraft").info("Delete all honeypot blocks was called!");
-    }
-
-    @Override
-    public List<HoneypotBlockObject> getAllHoneypots(@Nullable World world)
-        Logger.getLogger("minecraft").info("Get all honeypot blocks was called!");
-        return List.of();
-    }
-
-    @Override
-    public List<HoneypotBlockObject> getNearbyHoneypots(Location location, int i) {
-        Logger.getLogger("minecraft").info("Get nearby honeypot blocks was called!");
-        return List.of();
-    }
+@HoneypotStore(name = "myStoreB", type = {
+    StoreType.PLAYER,
+    StoreType.PLAYER_HISTORY
+})
+public class MyStoreB implements PlayerStore, PlayerHistoryStore {
+    // Implementation...
 }

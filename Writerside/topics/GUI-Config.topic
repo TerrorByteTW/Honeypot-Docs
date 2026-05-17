@@ -18,7 +18,7 @@
             <p>A number used internally to identify the version of the config file.
                 This number is used to handle file updates and other things. Do not modify it, otherwise you risk your
                 config being damaged</p>
-            <code-block lang="yaml">file-version: 6</code-block>
+            <code-block lang="yaml">file-version: 7</code-block>
         </chapter>
     </chapter>
 
@@ -47,6 +47,11 @@
         <chapter title="default-gui-button" id="default-gui-button">
             <p>The material to show if <code>display-button-as-honeypot</code> is false</p>
             <code-block lang="yaml">default-gui-button: DIAMOND_ORE</code-block>
+        </chapter>
+
+        <chapter title="default-creation-mode" id="default-creation-mode">
+            <p>The default mode to create Honeypots with when creating via the GUI. Options are "block" or "region"</p>
+            <code-block lang="yaml">default-gui-button: "block"</code-block>
         </chapter>
 
         <chapter title="main-buttons.create-button" id="main-buttons.create-button">
