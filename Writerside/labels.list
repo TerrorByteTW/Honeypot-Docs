@@ -20,9 +20,13 @@
         unstable or removed in the future
     </secondary-label>
 
-    <secondary-label id="uses-dependency" name="Uses Dependencies" color="tangerine">This feature uses 3rd party
+    <secondary-label id="stable" name="Stable" color="green">This feature is mature enough to be considered
+        stable. However, it may still be subject to change in the future, especially major version bumps.
+    </secondary-label>
+
+    <secondary-label id="uses-dependency" name="Uses Dependencies" color="tangerine">This feature uses third-party
         plugin dependencies for some or all parts of its functionality. Please be sure to closely consult the Wiki to
-        ensure these dependencies are met. Without these other plugins, utilizing these features may cause Honeypot to
+        ensure these dependencies are met. Without these other plugins, using these features may cause Honeypot to
         silently fail or exhibit unexpected behavior.
     </secondary-label>
 
