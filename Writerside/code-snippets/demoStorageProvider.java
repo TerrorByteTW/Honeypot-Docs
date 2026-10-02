@@ -1,9 +1,9 @@
 public class Test extends JavaPlugin {
 
-    // This is how you would register storage providers
     @Override
     public void onLoad() {
-        [[[Registry|https://javadoc.jitpack.io/com/github/TerrorByteTW/Honeypot/honeypot-api/3.4.0/javadoc/org/reprogle/honeypot/Registry.html]]].[[[getStorageManagerRegistry()|https://javadoc.jitpack.io/com/github/TerrorByteTW/Honeypot/honeypot-api/3.4.0/javadoc/org/reprogle/honeypot/Registry.html#getStorageManagerRegistry()]]].[[[register|https://javadoc.jitpack.io/com/github/TerrorByteTW/Honeypot/honeypot-api/3.4.0/javadoc/org/reprogle/honeypot/HoneypotStoreRegistry.html#register(org.reprogle.honeypot.common.storageproviders.StorageProvider)]]](new DemoHoneypotStore());
+        // **MUST** be registered within your `onLoad()` method.
+        Registry.getStorageManagerRegistry().register(new DemoHoneypotStore());
     }
 
     @Override

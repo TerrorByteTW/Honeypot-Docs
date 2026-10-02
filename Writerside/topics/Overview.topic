@@ -99,7 +99,8 @@
         <p>Installing Honeypot is simple. Just download it from one of the many locations it's available (The footer
             contains
             all of those), then drop it in your server's Plugins folder.</p>
-        <p>On the first boot Honeypot will generate all the configuration and database files needed to function. Changes to
+        <p>On the first boot Honeypot will generate all the configuration and database files needed to function. Changes
+            to
             the
             configuration files can be applied by using <code>/honeypot reload</code> in-game.</p>
         <note>
@@ -126,31 +127,24 @@
             issue with the plugin or a suggestion on how to improve it, please let me know!
         </p>
         <p>Q) Is Honeypot secure?<br/>
-            A) I've taken all precautionary steps to ensure Honeypot is secure and doesn't provide any security
-            vulnerabilities to
-            your server. As Honeypot is a Paper plugin, it is only as secure as Paper. It doesn't store any
-            personal
-            information about players or servers, and only collects anonymous statistics
+            A) I've taken all precautionary steps to ensure Honeypot is secure and doesn't create any security
+            vulnerabilities on your server. As Honeypot is a Paper plugin, it is only as secure as Paper. It doesn't
+            store any personal information about players or servers, and only collects anonymous statistics
             via <a href="https://bstats.org/plugin/bukkit/Honeypot/15425">bStats</a>. The plugin is open source for peer
-            review. SonarCloud
-            used to be used, but I haven't succeeded in configuring it yet when I switched to Gradle. Once I get it back
-            running it
-            will be available for public review.</p>
+            review.</p>
         <p>Q) How does Honeypot work?<br/>
             A) When you mark a block as a Honeypot, its location and
             <tooltip term="action">action</tooltip>
             is stored in the
             storage mechanism of choice (By default, this is SQLite, but other storage
-            providers can be programmatically added). Honeypot listens to up to 17 different events, such as Block
-            Break, Block Burn,
-            Entity Explode (Such as TnT), and many more. These event
+            providers can be programmatically added). Honeypot listens to over two dozen events, such as Block
+            Break, Block Burn, Entity Explode (Such as TNT), and many more. These event
             <tooltip term="listener">listeners</tooltip>
             contain logic to determine whether the event was on a
             Honeypot block and, if so, who caused the event and what action should be taken. Then, when a player
-            interacts with that
-            Honeypot, the action is retrieved, the plugin looks up the code for how the action should be processed, and
-            finally, the
-            action is run against the player. That's the simple definition; there's a lot more to it, of course 😉
+            interacts with that Honeypot, the action is retrieved, the plugin looks up the code for how the action
+            should be processed, and finally, the action is run against the player. That's the simple definition;
+            there's a lot more to it, of course 😉
         </p>
     </chapter>
 

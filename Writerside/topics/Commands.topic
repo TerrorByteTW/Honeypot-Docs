@@ -29,14 +29,18 @@
                 <td>Alias for <code>/honeypot help</code></td>
             </tr>
             <tr>
-                <td>/honeypot create &lt;type&gt;</td>
+                <td>/honeypot create &lt;block | region&gt; &lt;action&gt;</td>
                 <td>honeypot.create</td>
-                <td>Creates a honeypot of type <code>type</code></td>
+                <td>Creates a honeypot as either a block or region with action <code>action</code>. When creating a
+                    block, the block you're targeting is the Honeypot. When creating a region, you'll be given a
+                    "Honeypot Wand" to right click two blocks, which will make the entire region one big Honeypot.
+                </td>
             </tr>
             <tr>
                 <td>/honeypot remove (near | all)</td>
                 <td>honeypot.remove</td>
-                <td>Remove the honeypot you're looking at. Specify <code>near</code> or <code>all</code> to remove
+                <td>Remove the honeypot you're looking at or the region the block you're looking at is contained within.
+                    Specify <code>near</code> or <code>all</code> to remove
                     nearby Honeypots or all Honeypots
                 </td>
             </tr>
@@ -88,6 +92,12 @@
             <tr>
                 <td>honeypot.*</td>
                 <td>Gives access to all Honeypot commands and permissions</td>
+            </tr>
+            <tr>
+                <td>honeypot.create.region</td>
+                <td>Required to create Honeypot regions. Without this permission, you will not see the "region" option
+                    in the create command.
+                </td>
             </tr>
             <tr>
                 <td>honeypot.commands</td>
