@@ -10,43 +10,82 @@
     <primary-label ref="dependency-required"/>
     <chapter title="Placeholders" id="placeholders">
         <p>Honeypot supports Placeholders and even provides three as well. If you want to use custom
-            placeholders, you may do so by adding them to your honeypots.yml file. As for the placeholders that Honeypot
-            <emphasis>provides,</emphasis>
-            those are:
+            placeholders, you may do so by adding them to your honeypots.yml file.
         </p>
-        <list>
-            <li><code>&percnt;honeypot_current_count_broken&percnt;</code> -- This placeholder displays the count of
-                Honeypots the player has
-                broken
-                <emphasis>this cycle</emphasis>
-                . This means that this value will
-                <emphasis>never</emphasis>
-                be more than <code>blocks-broken-before-action-taken</code> in
-                config.
-            </li>
-            <li><code>&percnt;honeypot_breaks_before_action&percnt;</code> -- This placeholder displays the value of
-                <code>blocks-broken-before-action-taken</code>.
-            </li>
-            <li><code>&percnt;honeypot_current_count_broken_&lt;player&gt;&percnt;</code> -- This placeholder will get
-                the current amount of Honeypots
-                a specific player has broken
-                <emphasis>this cycle</emphasis>
-                . This value will
-                <emphasis>never</emphasis>
-                be more than <code>blocks-broken-before-action-taken</code> in
-                config.
-            </li>
-        </list>
-        <p>As a reminder, Honeypot does
-            <emphasis>not</emphasis>
-            currently keep track of the all-time total Honeypots a player has broken. It does,
-            however, keep track of how many they've broken before an action is taken. So, if you have
-            <code>blocks-broken-before-action-taken</code> set to 5, then they can break up to 5 before the counter is
-            reset and an action is
-            taken against the player. These placeholders are meant to display that information to the player at any
-            given time. You
-            can also query a different player using these placeholders.
-        </p>
+        <chapter title="Supported Placeholders" id="supported-placeholders">
+            <list>
+                <li><code>&percnt;honeypot_current_count_[type]&percnt;</code> -- This placeholder displays the count of
+                    Honeypots the player has broken
+                    <emphasis>this cycle</emphasis>
+                    for a given <code>type</code>. Types are one of: <code>break</code>, <code>inventory_open</code>,
+                    <code>inventory_interact</code>,
+                    or <code>generic</code>. This will
+                    <emphasis>never</emphasis>
+                    be more than the trigger limit configured for that type in config.
+                </li>
+                <li><code>&percnt;honeypot_current_count_[type]_[playerName]&percnt;</code> -- This is the same as the
+                    previous placeholder, except
+                    it gets a specific player's count instead of the current player viewing/seeing it.
+                </li>
+                <li><code>&percnt;honeypot_lifetime_triggers&percnt;</code> -- This is the all-time total count of
+                    Honeypots
+                    the current player has triggered. This does not necessarily mean action was taken, but rather a
+                    trigger
+                    was counted against them.
+                </li>
+                <li><code>&percnt;honeypot_lifetime_triggers_[playerName]&percnt;</code> -- This is the same as the
+                    previous placeholder, except it gets a specific player's lifetime trigger count instead of the
+                    current
+                    player viewing/seeing it.
+                </li>
+                <li><code>&percnt;honeypot_lifetime_actions&percnt;</code> -- This is the all-time total count of
+                    actions
+                    that have been taken against the current player. This is
+                    <emphasis>only</emphasis>
+                    action taken, not
+                    how many Honeypots they've triggered.
+                </li>
+                <li><code>&percnt;honeypot_lifetime_actions_[playerName]&percnt;</code> -- This is the same as the
+                    previous placeholder, except it gets a specific player's lifetime action count instead of the
+                    current
+                    player viewing/seeing it.
+                </li>
+                <li><code>&percnt;honeypot_triggers_before_action_[type]&percnt;</code> -- This placeholder displays the
+                    count of triggers any given player needs to reach before action is taken against them for a given
+                    <code>type</code>. Types are one of: <code>break</code>, <code>inventory_open</code>, <code>inventory_interact</code>,
+                    or <code>generic</code>.
+                </li>
+            </list>
+        </chapter>
+        <chapter title="Legacy Placeholders" id="legacy-placeholders">
+            <p>Honeypot's existing Placeholders are still supported, but are considered legacy and will be removed in
+                the future. These placeholders only support the "blocks broken" trigger. It's recommended you use the
+                new placeholders so that all triggers can be displayed.</p>
+            <list>
+                <li><code>&percnt;honeypot_current_count_broken&percnt;</code> -- This placeholder displays the count of
+                    Honeypots the player has
+                    broken
+                    <emphasis>this cycle</emphasis>
+                    . This means that this value will
+                    <emphasis>never</emphasis>
+                    be more than <code>trigger-limits.blocks-broken</code> in
+                    config.
+                </li>
+                <li><code>&percnt;honeypot_breaks_before_action&percnt;</code> -- This placeholder displays the value of
+                    <code>trigger-limits.blocks-broken</code>.
+                </li>
+                <li><code>&percnt;honeypot_current_count_broken_&lt;player&gt;&percnt;</code> -- This placeholder will
+                    get
+                    the current amount of Honeypots
+                    a specific player has broken
+                    <emphasis>this cycle</emphasis>
+                    . This value will
+                    <emphasis>never</emphasis>
+                    be more than <code>trigger-limits.blocks-broken</code> in
+                    config.
+                </li>
+            </list>
+        </chapter>
     </chapter>
 
     <seealso>

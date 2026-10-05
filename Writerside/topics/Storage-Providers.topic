@@ -71,7 +71,7 @@
 
         <p>Honeypot will allow registrations of storage providers only at load time, so you cannot reload Honeypot using
             <code>/reload</code> or a plugin like PlugManX. To use the Storage Provider that was added, see
-            <a href="Plugin-Config.topic" anchor="experimental-settings">Configuring Honeypot</a>. You must update
+            <a href="Plugin-Config.topic" anchor="storage-method">Configuring Honeypot</a>. You must update
             the name of the storage method to what you set in the <code>@HoneypotStore</code> annotation.
         </p>
 

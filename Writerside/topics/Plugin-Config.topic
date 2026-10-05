@@ -18,7 +18,7 @@
             <p>A number used internally to identify the version of the config file.
                 This number is used to handle file updates and other things. Do not modify it, otherwise you risk your
                 config being damaged</p>
-            <code-block lang="yaml">file-version: 30</code-block>
+            <code-block lang="yaml">file-version: 31</code-block>
         </chapter>
     </chapter>
 
@@ -33,10 +33,39 @@
             <code-block lang="yaml">enable-extra-events: false</code-block>
         </chapter>
 
-        <chapter title="blocks-broken-before-action-taken" id="blocks-broken-before-action-taken">
-            <p>The number of Honeypot blocks a player is allowed to break before action is taken. Set to 1 for
-                immediate action</p>
-            <code-block lang="yaml">blocks-broken-before-action-taken: 1</code-block>
+        <chapter title="trigger-limits.blocks-broken" id="trigger-limits.blocks-broken">
+            <p>The number of Honeypots that must be broken before any action is taken against the player.</p>
+            <code-block lang="yaml">
+                trigger-limits:
+                    blocks-broken: 1
+            </code-block>
+        </chapter>
+
+        <chapter title="trigger-limits.inventories-opened" id="trigger-limits.inventories-opened">
+            <p>When <code>use-inventory-click</code> is set to <code>false</code>, this is the number of Honeypots that
+                are inventories that the player must open before action is taken against them.</p>
+            <code-block lang="yaml">
+                trigger-limits:
+                    inventories-opened: 1
+            </code-block>
+        </chapter>
+
+        <chapter title="trigger-limits.inventories-interacted" id="trigger-limits.inventories-interacted">
+            <p>When <code>use-inventory-click</code> is set to <code>true</code>, this is the number of Honeypots that
+                are inventories that the player must open and interact within before action is taken against them.</p>
+            <code-block lang="yaml">
+                trigger-limits:
+                    inventories-interacted: 1
+            </code-block>
+        </chapter>
+
+        <chapter title="trigger-limits.generic" id="trigger-limits.generic">
+            <p>The number of generic actions that the player must perform before action is taken against them. Examples
+                are editing signs or blowing up blocks that are Honeypots or Honeypot Regions</p>
+            <code-block lang="yaml">
+                trigger-limits:
+                    generic: 1
+            </code-block>
         </chapter>
 
         <chapter title="allow-player-destruction" id="allow-player-destruction">
@@ -110,17 +139,29 @@
                     check-interval: 20</code-block>
         </chapter>
 
-        <chapter title="enable-logging" id="enable-logging">
-            <p>Enables all INFO, WARN, and SEVERE logs from Honeypot to be logged to disk, as well as more detailed
-                DEBUG logs that aren't put in console</p>
-            <code-block lang="yaml">enable-logging: false</code-block>
+        <chapter title="logging.enable-logging" id="logging.enable-logging">
+            <p>Enables all VERBOSE, DEBUG, INFO, WARNING, and ERROR logs from Honeypot to be logged to console and disk,
+                if configured.</p>
+            <code-block lang="yaml">
+                logging:
+                    enable-logging: true</code-block>
         </chapter>
 
-        <chapter title="silence-noisy-logs" id="silence-noisy-logs">
-            <p>Silences more noisy log messages, such as events from non-player triggered actions (Pistons, leaf decay,
-                etc.) or log messages that occur frequently. This only affects DEBUG log messages; INFO, WARNING, etc.
-                are not affected.</p>
-            <code-block lang="yaml">silence-noisy-logs: false</code-block>
+        <chapter title="logging.log-to-file" id="logging.log-to-file">
+            <p>Enables logging to file as well as to console. If the minimum log level is VERBOSE or DEBUG, this is
+                always considered true.</p>
+            <code-block lang="yaml">
+                logging:
+                    log-to-file: true</code-block>
+        </chapter>
+
+        <chapter title="logging.minimum-log-level" id="logging.minimum-log-level">
+            <p>Sets the minimum log level for logging. Options are VERBOSE, DEBUG, INFO, WARNING, and ERROR. For
+                debugging purposes or to report an issue to the developer, please ensure logging is set to, at minimum,
+                DEBUG. VERBOSE is preferred, however.</p>
+            <code-block lang="yaml">
+                logging:
+                    minimum-log-level: INFO</code-block>
         </chapter>
 
         <chapter title="discord.enable" id="discord.enable">
@@ -167,6 +208,42 @@
         <chapter title="region-wand" id="region-wand">
             <p>Determines the Material of the item that acts as the "wand" when creating Honeypot Regions</p>
             <code-block lang="yaml">region-wand: HONEY_BOTTLE</code-block>
+        </chapter>
+
+        <chapter title="storage-method" id="storage-method">
+            <p>Allows server admins to select the best method of storing Honeypot data. There is currently only one
+                option for each storage type</p>
+            <table>
+                <tr>
+                    <td>Type</td>
+                    <td>Kind</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td><code>sqlite-regions</code></td>
+                    <td><code>StoreType.REGION</code></td>
+                    <td>Stores block data in the <code>honeypot.db</code> file.
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>sqlite-players</code></td>
+                    <td><code>StoreType.PLAYER</code></td>
+                    <td>Stores player data in the <code>honeypot.db</code> file.
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>sqlite-player-history</code></td>
+                    <td><code>StoreType.PLAYER_HISTORY</code></td>
+                    <td>Stores player history data in the <code>honeypot.db</code> file.
+                    </td>
+                </tr>
+            </table>
+            <code-block lang="yaml">
+storage-method:
+    regions: "sqlite-regions"
+    players: "sqlite-players"
+    player-history: "sqlite-player-history"
+            </code-block>
         </chapter>
     </chapter>
 
@@ -230,48 +307,6 @@
             <code-block lang="yaml">
                 allowed-blocks:
                     - DIAMOND_ORE
-            </code-block>
-        </chapter>
-    </chapter>
-
-    <chapter title="Experimental Settings" id="experimental-settings">
-        <secondary-label ref="experimental"/>
-        <p>Experimental settings are settings that exist within Honeypot that add or enable new features but can be
-            potentially unstable or cause issues. Over time, as these features are developed, they will be considered
-            stable and moved into the proper category</p>
-        <chapter title="storage-method" id="storage-method">
-            <p>Allows server admins to select the best method of storing Honeypot data. There is currently only one
-                option for each storage type</p>
-            <table>
-                <tr>
-                    <td>Type</td>
-                    <td>Kind</td>
-                    <td>Description</td>
-                </tr>
-                <tr>
-                    <td><code>sqlite-regions</code></td>
-                    <td><code>StoreType.REGION</code></td>
-                    <td>Stores block data in the <code>honeypot.db</code> file.
-                    </td>
-                </tr>
-                <tr>
-                    <td><code>sqlite-players</code></td>
-                    <td><code>StoreType.PLAYER</code></td>
-                    <td>Stores player data in the <code>honeypot.db</code> file.
-                    </td>
-                </tr>
-                <tr>
-                    <td><code>sqlite-player-history</code></td>
-                    <td><code>StoreType.PLAYER_HISTORY</code></td>
-                    <td>Stores player history data in the <code>honeypot.db</code> file.
-                    </td>
-                </tr>
-            </table>
-            <code-block lang="yaml">
-storage-method:
-  regions: "sqlite-regions"
-  players: "sqlite-players"
-  player-history: "sqlite-player-history"
             </code-block>
         </chapter>
     </chapter>

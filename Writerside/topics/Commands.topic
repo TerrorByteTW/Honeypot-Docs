@@ -30,10 +30,10 @@
             </tr>
             <tr>
                 <td>/honeypot create &lt;block | region&gt; &lt;action&gt;</td>
-                <td>honeypot.create</td>
+                <td>honeypot.create (honeypot.create.region if creating regions)</td>
                 <td>Creates a honeypot as either a block or region with action <code>action</code>. When creating a
                     block, the block you're targeting is the Honeypot. When creating a region, you'll be given a
-                    "Honeypot Wand" to right click two blocks, which will make the entire region one big Honeypot.
+                    "Honeypot Wand" to right-click two blocks, which will make the entire region one big Honeypot.
                 </td>
             </tr>
             <tr>

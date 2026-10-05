@@ -15,7 +15,7 @@ public class Test extends JavaPlugin implements Listener {
     }
 
     @EventHandler
-    public static void onHoneypotPrePlayerBreakEvent(HoneypotPrePlayerBreakEvent event) {
+    public static void onHoneypotPreTrigger(HoneypotPreTriggerEvent event) {
             event.getPlayer().sendMessage("You threw the event!");
-}
+    }
 }
